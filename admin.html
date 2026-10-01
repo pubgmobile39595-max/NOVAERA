@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOVAERA — Admin Panel</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070b14;
+  color:#fff;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN */
+
+#loginScreen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top,#17233d 0,#070b14 45%,#03050a 100%);
+}
+
+.loginBox{
+  width:100%;
+  max-width:430px;
+  background:#101827;
+  border:1px solid #263650;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.logo span{
+  color:#5ea8ff;
+}
+
+.loginSubtitle{
+  color:#93a4bd;
+  margin-bottom:28px;
+}
+
+.field{
+  margin-bottom:16px;
+}
+
+.field label{
+  display:block;
+  font-size:13px;
+  color:#aab8cc;
+  margin-bottom:7px;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #30415e;
+  background:#0a111e;
+  color:#fff;
+  outline:none;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:#5ea8ff;
+}
+
+.primaryBtn{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:12px;
+  background:#4d9cff;
+  color:#fff;
+  font-weight:800;
+}
+
+.primaryBtn:hover{
+  opacity:.9;
+}
+
+.error{
+  margin-top:14px;
+  color:#ff8585;
+  font-size:14px;
+}
+
+/* PANEL */
+
+#adminApp{
+  min-height:100vh;
+}
+
+.topbar{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  background:#0c1320;
+  border-bottom:1px solid #1e2b40;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.brand{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.brand span{
+  color:#5ea8ff;
+}
+
+.topRight{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.adminEmail{
+  color:#9eabc0;
+  font-size:13px;
+}
+
+.logoutBtn{
+  border:1px solid #34445d;
+  background:#121c2b;
+  color:#fff;
+  padding:9px 13px;
+  border-radius:9px;
+}
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+}
+
+.sidebar{
+  width:240px;
+  background:#090f1a;
+  border-right:1px solid #1d2a3e;
+  padding:20px 14px;
+  flex-shrink:0;
+}
+
+.menuTitle{
+  color:#667792;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  padding:12px;
+}
+
+.sideBtn{
+  width:100%;
+  text-align:left;
+  background:transparent;
+  color:#aebbd0;
+  border:0;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:4px;
+}
+
+.sideBtn:hover,
+.sideBtn.active{
+  background:#152237;
+  color:#fff;
+}
+
+.main{
+  flex:1;
+  padding:28px;
+  min-width:0;
+}
+
+.pageTitle{
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.pageSubtitle{
+  color:#8392a8;
+  margin-bottom:25px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:#101827;
+  border:1px solid #21314a;
+  border-radius:16px;
+  padding:20px;
+}
+
+.statLabel{
+  color:#8291a8;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.statValue{
+  font-size:30px;
+  font-weight:900;
+}
+
+/* CONTENT */
+
+.panel{
+  background:#101827;
+  border:1px solid #21314a;
+  border-radius:18px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.panelHead{
+  padding:18px 20px;
+  border-bottom:1px solid #21314a;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.panelTitle{
+  font-size:18px;
+  font-weight:800;
+}
+
+.search{
+  max-width:300px;
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #30415e;
+  background:#0a111e;
+  color:#fff;
+  outline:none;
+}
+
+.tableWrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:800px;
+}
+
+th,
+td{
+  padding:14px 16px;
+  text-align:left;
+  border-bottom:1px solid #1d2a3e;
+  font-size:13px;
+}
+
+th{
+  color:#7f90a8;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+td{
+  color:#d8e1ee;
+}
+
+tr:hover td{
+  background:#0d1522;
+}
+
+.status{
+  display:inline-flex;
+  padding:6px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.status-yeni{
+  background:#1b3550;
+  color:#6eb4ff;
+}
+
+.status-inceleniyor{
+  background:#44351a;
+  color:#ffc95c;
+}
+
+.status-onaylandi{
+  background:#173d2b;
+  color:#5ee59a;
+}
+
+.status-iptal{
+  background:#451f25;
+  color:#ff858f;
+}
+
+.actionBtn{
+  border:1px solid #30415e;
+  background:#142033;
+  color:#fff;
+  padding:7px 10px;
+  border-radius:8px;
+}
+
+.actionBtn:hover{
+  background:#1d304d;
+}
+
+/* SECTIONS */
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+.placeholder{
+  padding:45px 25px;
+  text-align:center;
+  color:#8392a8;
+}
+
+.placeholderIcon{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalBox{
+  width:100%;
+  max-width:650px;
+  max-height:90vh;
+  overflow:auto;
+  background:#101827;
+  border:1px solid #30415e;
+  border-radius:20px;
+  padding:24px;
+}
+
+.modalHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:22px;
+}
+
+.close{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:10px;
+  background:#1b2739;
+  color:#fff;
+  font-size:20px;
+}
+
+.details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.detail{
+  background:#0a111e;
+  border:1px solid #1d2a3e;
+  border-radius:12px;
+  padding:13px;
+}
+
+.detail.full{
+  grid-column:1/-1;
+}
+
+.detailLabel{
+  font-size:11px;
+  color:#72829a;
+  margin-bottom:5px;
+}
+
+.detailValue{
+  color:#fff;
+  word-break:break-word;
+}
+
+.modalActions{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+}
+
+.modalActions select{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #30415e;
+  background:#0a111e;
+  color:#fff;
+}
+
+.saveBtn{
+  padding:12px 18px;
+  border:0;
+  border-radius:10px;
+  background:#4d9cff;
+  color:#fff;
+  font-weight:800;
+}
+
+/* TOAST */
+
+#toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#172337;
+  border:1px solid #3b506e;
+  color:#fff;
+  padding:13px 17px;
+  border-radius:12px;
+  display:none;
+  z-index:300;
+  max-width:350px;
+}
+
+#toast.show{
+  display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .sidebar{
+    width:190px;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .topbar{
+    padding:0 14px;
+  }
+
+  .adminEmail{
+    display:none;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  .sidebar{
+    width:100%;
+    border-right:0;
+    border-bottom:1px solid #1d2a3e;
+    display:flex;
+    overflow-x:auto;
+    padding:10px;
+    gap:5px;
+  }
+
+  .menuTitle{
+    display:none;
+  }
+
+  .sideBtn{
+    width:auto;
+    white-space:nowrap;
+    margin:0;
+  }
+
+  .main{
+    padding:18px 12px;
+  }
+
+  .pageTitle{
+    font-size:25px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .stat{
+    padding:15px;
+  }
+
+  .statValue{
+    font-size:25px;
+  }
+
+  .details{
+    grid-template-columns:1fr;
+  }
+
+  .detail.full{
+    grid-column:auto;
+  }
+
+  .modalActions{
+    flex-direction:column;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginScreen">
+
+  <div class="loginBox">
+
+    <div class="logo">
+      NOVA<span>ERA</span>
+    </div>
+
+    <div class="loginSubtitle">
+      Yönetim Paneli
+    </div>
+
+    <div class="field">
+      <label>E-posta</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="admin@novaera.com"
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="field">
+      <label>Şifre</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Şifreniz"
+        autocomplete="current-password"
+      >
+    </div>
+
+    <button
+      class="primaryBtn"
+      onclick="login()"
+    >
+      Yönetim Paneline Gir
+    </button>
+
+    <div
+      id="loginError"
+      class="error"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- ADMIN APP -->
+
+<div
+  id="adminApp"
+  class="hidden"
+>
+
+  <header class="topbar">
+
+    <div class="brand">
+      NOVA<span>ERA</span>
+    </div>
+
+    <div class="topRight">
+
+      <div
+        id="adminEmail"
+        class="adminEmail"
+      ></div>
+
+      <button
+        class="logoutBtn"
+        onclick="logout()"
+      >
+        Çıkış
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <div class="layout">
+
+    <aside class="sidebar">
+
+      <div class="menuTitle">
+        Yönetim
+      </div>
+
+      <button
+        class="sideBtn active"
+        onclick="showSection('dashboard',this)"
+      >
+        📊 Dashboard
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('bookings',this)"
+      >
+        📋 Rezervasyonlar
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('customers',this)"
+      >
+        👤 Müşteriler
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('requests',this)"
+      >
+        📨 Talepler
+      </button>
+
+      <div class="menuTitle">
+        İçerik
+      </div>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('destinations',this)"
+      >
+        🌍 Destinasyonlar
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('hotels',this)"
+      >
+        🏨 Oteller
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('tours',this)"
+      >
+        🗺️ Turlar
+      </button>
+
+      <button
+        class="sideBtn"
+        onclick="showSection('transfers',this)"
+      >
+        🚘 Transferler
+      </button>
+
+    </aside>
+
+
+    <main class="main">
+
+      <!-- DASHBOARD -->
+
+      <section
+        id="dashboard"
+        class="section active"
+      >
+
+        <h1 class="pageTitle">
+          Dashboard
+        </h1>
+
+        <p class="pageSubtitle">
+          NOVAERA operasyon merkezine hoş geldin.
+        </p>
+
+        <div class="stats">
+
+          <div class="stat">
+            <div class="statLabel">
+              Toplam Rezervasyon
+            </div>
+            <div
+              id="totalBookings"
+              class="statValue"
+            >
+              0
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="statLabel">
+              Yeni
+            </div>
+            <div
+              id="newBookings"
+              class="statValue"
+            >
+              0
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="statLabel">
+              İnceleniyor
+            </div>
+            <div
+              id="reviewBookings"
+              class="statValue"
+            >
+              0
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="statLabel">
+              Onaylandı
+            </div>
+            <div
+              id="approvedBookings"
+              class="statValue"
+            >
+              0
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="panel">
+
+          <div class="panelHead">
+
+            <div class="panelTitle">
+              Son Rezervasyonlar
+            </div>
+
+            <button
+              class="actionBtn"
+              onclick="showSection('bookings')"
+            >
+              Tümünü Gör
+            </button>
+
+          </div>
+
+          <div class="tableWrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Rezervasyon</th>
+                  <th>Müşteri</th>
+                  <th>Hizmet</th>
+                  <th>Durum</th>
+                  <th></th>
+                </tr>
+
+              </thead>
+
+              <tbody id="recentTable">
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- BOOKINGS -->
+
+      <section
+        id="bookings"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Rezervasyonlar
+        </h1>
+
+        <p class="pageSubtitle">
+          NOVAERA üzerinden gelen rezervasyon taleplerini yönet.
+        </p>
+
+        <div class="panel">
+
+          <div class="panelHead">
+
+            <div class="panelTitle">
+              Tüm Rezervasyonlar
+            </div>
+
+            <input
+              id="bookingSearch"
+              class="search"
+              type="search"
+              placeholder="Müşteri, e-posta veya rezervasyon ara..."
+              oninput="renderBookings()"
+            >
+
+          </div>
+
+          <div class="tableWrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Rezervasyon</th>
+                  <th>Müşteri</th>
+                  <th>E-posta</th>
+                  <th>Hizmet</th>
+                  <th>Kişi</th>
+                  <th>Durum</th>
+                  <th></th>
+                </tr>
+
+              </thead>
+
+              <tbody id="bookingsTable">
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- CUSTOMERS -->
+
+      <section
+        id="customers"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Müşteriler
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              👤
+            </div>
+
+            <h2>
+              Müşteri Yönetimi
+            </h2>
+
+            <p>
+              Üyelik sistemi kurulduğunda müşteriler burada listelenecek.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- REQUESTS -->
+
+      <section
+        id="requests"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Talepler
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              📨
+            </div>
+
+            <h2>
+              Özel Seyahat Talepleri
+            </h2>
+
+            <p>
+              Özel talepler için operasyon modülü burada yönetilecek.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- DESTINATIONS -->
+
+      <section
+        id="destinations"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Destinasyonlar
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              🌍
+            </div>
+
+            <h2>
+              Destinasyon Yönetimi
+            </h2>
+
+            <p>
+              İstanbul, Dubai, Paris, Maldivler ve yeni destinasyonlar burada yönetilecek.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- HOTELS -->
+
+      <section
+        id="hotels"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Oteller
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              🏨
+            </div>
+
+            <h2>
+              Otel Yönetimi
+            </h2>
+
+            <p>
+              Otel envanteri ve sağlayıcı entegrasyonları sonraki aşamada bağlanacak.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- TOURS -->
+
+      <section
+        id="tours"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Turlar
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              🗺️
+            </div>
+
+            <h2>
+              Tur Yönetimi
+            </h2>
+
+            <p>
+              Tur ürünleri ve fiyatlandırma sistemi sonraki aşamada eklenecek.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- TRANSFERS -->
+
+      <section
+        id="transfers"
+        class="section"
+      >
+
+        <h1 class="pageTitle">
+          Transferler
+        </h1>
+
+        <div class="panel">
+
+          <div class="placeholder">
+
+            <div class="placeholderIcon">
+              🚘
+            </div>
+
+            <h2>
+              Transfer Yönetimi
+            </h2>
+
+            <p>
+              Transfer araçları ve operasyonları sonraki aşamada eklenecek.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- DETAIL MODAL -->
+
+<div
+  id="detailModal"
+  class="modal"
+  onclick="closeModalOutside(event)"
+>
+
+  <div
+    class="modalBox"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="modalHead">
+
+      <h2>
+        Rezervasyon Detayı
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="bookingDetails"
+      class="details"
+    ></div>
+
+    <div class="modalActions">
+
+      <select id="statusSelect">
+
+        <option value="Yeni">
+          Yeni
+        </option>
+
+        <option value="İnceleniyor">
+          İnceleniyor
+        </option>
+
+        <option value="Onaylandı">
+          Onaylandı
+        </option>
+
+        <option value="İptal">
+          İptal
+        </option>
+
+      </select>
+
+      <button
+        class="saveBtn"
+        onclick="saveStatus()"
+      >
+        Durumu Kaydet
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  updateDoc,
+  query,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyC56d_Cnh2lZIimgifSkiqk5GggU-aX1G4",
+
+  authDomain:
+    "novaera-2f0d2.firebaseapp.com",
+
+  projectId:
+    "novaera-2f0d2",
+
+  storageBucket:
+    "novaera-2f0d2.firebasestorage.app",
+
+  messagingSenderId:
+    "877581197546",
+
+  appId:
+    "1:877581197546:web:2d24a9989d21505f2c3793",
+
+  measurementId:
+    "G-VSLTN4QBL8"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* GLOBAL */
+
+let bookings = [];
+
+let selectedBookingId = null;
+
+
+/* LOGIN */
+
+window.login = async function(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const error =
+    document.getElementById("loginError");
+
+  error.textContent = "";
+
+  if(!email || !password){
+
+    error.textContent =
+      "E-posta ve şifre gerekli.";
+
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(err){
+
+    console.error(err);
+
+    error.textContent =
+      "Giriş başarısız. E-posta veya şifreyi kontrol edin.";
+
+  }
+
+};
+
+
+/* LOGOUT */
+
+window.logout = async function(){
+
+  await signOut(auth);
+
+};
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth, async(user)=>{
+
+  if(!user){
+
+    document
+      .getElementById("loginScreen")
+      .classList.remove("hidden");
+
+    document
+      .getElementById("adminApp")
+      .classList.add("hidden");
+
+    return;
+
+  }
+
+
+  try{
+
+    const adminRef =
+      doc(db,"admins",user.uid);
+
+    const adminSnap =
+      await getDoc(adminRef);
+
+
+    if(!adminSnap.exists()){
+
+      await signOut(auth);
+
+      document
+        .getElementById("loginError")
+        .textContent =
+        "Bu kullanıcı admin olarak yetkilendirilmemiş.";
+
+      return;
+
+    }
+
+
+    const adminData =
+      adminSnap.data();
+
+
+    const role =
+      String(adminData.role || "")
+        .trim()
+        .toLowerCase();
+
+
+    if(
+      adminData.active !== true ||
+      role !== "admin"
+    ){
+
+      await signOut(auth);
+
+      document
+        .getElementById("loginError")
+        .textContent =
+        "Admin yetkiniz aktif değil.";
+
+      re

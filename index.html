@@ -1055,3 +1055,1148 @@
 
               <input
                 id=
+  id="searchGuests"
+  type="number"
+  min="1"
+  value="2">
+</div>
+
+<button
+  type="button"
+  class="search-btn"
+  onclick="startSearch()">
+  Ara
+</button>
+
+</div>
+
+<!-- SEARCH RESULTS -->
+<div id="searchResults">
+
+  <div class="search-result-title">
+    Arama sonuçları
+  </div>
+
+  <div class="search-result-info" id="searchResultInfo">
+    Aramanıza uygun seçenekler hazırlanıyor.
+  </div>
+
+  <div class="result-grid">
+
+    <div class="result-card">
+      <div class="result-icon">🏨</div>
+      <h3>Otel</h3>
+      <p>Konaklama seçeneklerini keşfedin.</p>
+
+      <button
+        type="button"
+        onclick="openBooking('Otel Rezervasyonu')">
+        Rezervasyon Talebi
+      </button>
+    </div>
+
+    <div class="result-card">
+      <div class="result-icon">✈️</div>
+      <h3>Tur</h3>
+      <p>Yurt içi ve yurt dışı tur seçenekleri.</p>
+
+      <button
+        type="button"
+        onclick="openBooking('Tur Rezervasyonu')">
+        Tur Talebi
+      </button>
+    </div>
+
+    <div class="result-card">
+      <div class="result-icon">🚘</div>
+      <h3>Transfer</h3>
+      <p>Havalimanı ve özel transfer hizmetleri.</p>
+
+      <button
+        type="button"
+        onclick="openBooking('Transfer Talebi')">
+        Transfer Talebi
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HİZMETLER -->
+    <section id="hizmetler">
+
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <h2>Her yolculuk için tek platform.</h2>
+          </div>
+
+          <p>
+            NOVAERA ile konaklama, tur, transfer ve özel seyahat
+            hizmetlerini tek noktadan planlayabilirsiniz.
+          </p>
+        </div>
+
+        <div class="categories">
+
+          <div
+            class="category"
+            onclick="openBooking('Otel Rezervasyonu')">
+
+            <div class="category-icon">🏨</div>
+
+            <h3>Oteller</h3>
+
+            <p>
+              Şehir otellerinden lüks resortlara kadar
+              konaklama seçenekleri.
+            </p>
+
+          </div>
+
+
+          <div
+            class="category"
+            onclick="openBooking('Tur & Gezi')">
+
+            <div class="category-icon">🌍</div>
+
+            <h3>Turlar</h3>
+
+            <p>
+              Yurt içi ve yurt dışı keşif deneyimleri.
+            </p>
+
+          </div>
+
+
+          <div
+            class="category"
+            onclick="openBooking('Havalimanı Transferi')">
+
+            <div class="category-icon">🚘</div>
+
+            <h3>Transfer</h3>
+
+            <p>
+              Havalimanı ve şehirler arası transfer hizmetleri.
+            </p>
+
+          </div>
+
+
+          <div
+            class="category"
+            onclick="openBooking('VIP Seyahat')">
+
+            <div class="category-icon">✦</div>
+
+            <h3>VIP Seyahat</h3>
+
+            <p>
+              Özel araç, özel transfer ve kişiselleştirilmiş
+              seyahat planları.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DESTİNASYONLAR -->
+    <section id="kesfet">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>Popüler destinasyonlar.</h2>
+          </div>
+
+          <p>
+            Dünyanın farklı noktalarında yeni deneyimler
+            keşfedin.
+          </p>
+
+        </div>
+
+
+        <div class="destinations">
+
+          <div
+            class="destination"
+            onclick="openBooking('İstanbul Seyahati')">
+
+            <div class="destination-content">
+              <small>Türkiye</small>
+              <h3>İstanbul</h3>
+            </div>
+
+          </div>
+
+
+          <div
+            class="destination"
+            onclick="openBooking('Dubai Seyahati')">
+
+            <div class="destination-content">
+              <small>Birleşik Arap Emirlikleri</small>
+              <h3>Dubai</h3>
+            </div>
+
+          </div>
+
+
+          <div
+            class="destination"
+            onclick="openBooking('Paris Seyahati')">
+
+            <div class="destination-content">
+              <small>Fransa</small>
+              <h3>Paris</h3>
+            </div>
+
+          </div>
+
+
+          <div
+            class="destination"
+            onclick="openBooking('Roma Seyahati')">
+
+            <div class="destination-content">
+              <small>İtalya</small>
+              <h3>Roma</h3>
+            </div>
+
+          </div>
+
+
+          <div
+            class="destination"
+            onclick="openBooking('Maldivler Seyahati')">
+
+            <div class="destination-content">
+              <small>Maldivler</small>
+              <h3>Maldivler</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FIRSATLAR -->
+    <section id="firsatlar">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>Öne çıkan deneyimler.</h2>
+          </div>
+
+          <p>
+            Yakında NOVAERA üzerinden sunulacak seyahat
+            deneyimleri.
+          </p>
+
+        </div>
+
+
+        <div class="deals">
+
+          <div class="deal">
+
+            <div class="deal-image">
+              <span>Şehir Kaçamağı</span>
+            </div>
+
+            <div class="deal-body">
+
+              <h3>İstanbul Weekend</h3>
+
+              <p>
+                İstanbul'da kısa süreli şehir deneyimi.
+              </p>
+
+              <div class="price">
+
+                <strong>Talep Al</strong>
+
+                <button
+                  class="btn btn-primary"
+                  onclick="openBooking('İstanbul Weekend')">
+                  İncele
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="deal">
+
+            <div class="deal-image">
+              <span>Lüks Tatil</span>
+            </div>
+
+            <div class="deal-body">
+
+              <h3>Dubai Experience</h3>
+
+              <p>
+                Dubai için kişiselleştirilmiş seyahat planı.
+              </p>
+
+              <div class="price">
+
+                <strong>Talep Al</strong>
+
+                <button
+                  class="btn btn-primary"
+                  onclick="openBooking('Dubai Experience')">
+                  İncele
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="deal">
+
+            <div class="deal-image">
+              <span>Özel Seyahat</span>
+            </div>
+
+            <div class="deal-body">
+
+              <h3>Maldivler Escape</h3>
+
+              <p>
+                Özel tatil planlaması ve transfer seçenekleri.
+              </p>
+
+              <div class="price">
+
+                <strong>Talep Al</strong>
+
+                <button
+                  class="btn btn-primary"
+                  onclick="openBooking('Maldivler Escape')">
+                  İncele
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEDEN NOVAERA -->
+    <section
+      id="hakkimizda"
+      class="why">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>Neden NOVAERA?</h2>
+          </div>
+
+          <p>
+            Seyahati daha kolay, daha düzenli ve
+            kişiselleştirilebilir hale getirmek için
+            tasarlanan yeni nesil platform.
+          </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+          <div class="why-card">
+
+            <div class="icon">⚡</div>
+
+            <h3>Kolay Planlama</h3>
+
+            <p>
+              Seyahatinizin temel ihtiyaçlarını tek
+              noktadan planlama imkanı.
+            </p>
+
+          </div>
+
+
+          <div class="why-card">
+
+            <div class="icon">🔒</div>
+
+            <h3>Güvenli Süreç</h3>
+
+            <p>
+              Rezervasyon taleplerinizi düzenli şekilde
+              yönetmeye yönelik altyapı.
+            </p>
+
+          </div>
+
+
+          <div class="why-card">
+
+            <div class="icon">✦</div>
+
+            <h3>Kişiselleştirme</h3>
+
+            <p>
+              Standart seyahatlerin yanında özel
+              talepler için planlama desteği.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section>
+
+      <div class="cta">
+
+        <h2>Bir sonraki yolculuğunuzu planlayın.</h2>
+
+        <p>
+          Gideceğiniz yeri, tarihleri ve kişi sayısını
+          belirleyin. NOVAERA üzerinden seyahat talebinizi
+          oluşturun.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          onclick="openBooking('Seyahat Planlama')">
+          Seyahat Planla
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+            <span class="logo-mark">N</span>
+            NOVAERA
+          </div>
+
+          <p>
+            Dünyayı keşfetmenin yeni yolu.
+            Otel, tur, transfer ve özel seyahat
+            hizmetleri.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>Keşfet</h4>
+
+          <a href="#kesfet">Destinasyonlar</a>
+          <a href="#firsatlar">Fırsatlar</a>
+          <a href="#hizmetler">Hizmetler</a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>Hizmetler</h4>
+
+          <a
+            href="javascript:openBooking('Otel Rezervasyonu')">
+            Otel
+          </a>
+
+          <a
+            href="javascript:openBooking('Tur Rezervasyonu')">
+            Tur
+          </a>
+
+          <a
+            href="javascript:openBooking('Transfer Talebi')">
+            Transfer
+          </a>
+
+          <a
+            href="javascript:openBooking('VIP Seyahat')">
+            VIP Seyahat
+          </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>İletişim</h4>
+
+          <a href="mailto:info@novaera.com">
+            info@novaera.com
+          </a>
+
+          <a href="tel:+905000000000">
+            +90 500 000 00 00
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        <span>
+          © 2026 NOVAERA. Tüm hakları saklıdır.
+        </span>
+
+        <span>
+          Yeni nesil seyahat platformu.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- BOOKING MODAL -->
+  <div
+    class="modal-overlay"
+    id="bookingModal">
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        onclick="closeBooking()">
+        ×
+      </button>
+
+      <h2>Seyahat Talebi</h2>
+
+      <p class="modal-subtitle">
+        Bilgilerinizi bırakın, seyahat talebinizi
+        oluşturalım.
+      </p>
+
+
+      <div
+        class="selected-service"
+        id="selectedService">
+        Hizmet seçilmedi.
+      </div>
+
+
+      <form id="bookingForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label>Ad Soyad</label>
+
+            <input
+              id="bookingName"
+              type="text"
+              required
+              placeholder="Adınız ve soyadınız">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>E-posta</label>
+
+            <input
+              id="bookingEmail"
+              type="email"
+              required
+              placeholder="ornek@mail.com">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Telefon</label>
+
+            <input
+              id="bookingPhone"
+              type="tel"
+              required
+              placeholder="+90">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Misafir Sayısı</label>
+
+            <input
+              id="bookingGuests"
+              type="number"
+              min="1"
+              value="2"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Giriş Tarihi</label>
+
+            <input
+              id="bookingCheckin"
+              type="date">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Çıkış Tarihi</label>
+
+            <input
+              id="bookingCheckout"
+              type="date">
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>Notunuz</label>
+
+            <textarea
+              id="bookingNotes"
+              placeholder="Özel isteklerinizi yazabilirsiniz."></textarea>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="bookingSubmit">
+          Talebi Gönder
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div
+    class="toast"
+    id="toast">
+  </div>
+
+
+  <!-- FIREBASE STATUS -->
+  <div
+    class="firebase-status"
+    id="firebaseStatus">
+    Firebase hazırlanıyor...
+  </div>
+
+
+  <!-- FIREBASE -->
+  <script type="module">
+
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyC56d_Cnh2lZIimgifSkiqk5GggU-aX1G4",
+
+      authDomain: "novaera-2f0d2.firebaseapp.com",
+
+      projectId: "novaera-2f0d2",
+
+      storageBucket: "novaera-2f0d2.firebasestorage.app",
+
+      messagingSenderId: "877581197546",
+
+      appId: "1:877581197546:web:2d24a9989d21505f2c3793",
+
+      measurementId: "G-VSLTN4QBL8"
+
+    };
+
+
+    try {
+
+      const app = initializeApp(firebaseConfig);
+
+      const db = getFirestore(app);
+
+
+      window.NOVAERA_FIREBASE = {
+
+        db,
+        collection,
+        addDoc,
+        serverTimestamp
+
+      };
+
+
+      const status =
+        document.getElementById("firebaseStatus");
+
+      status.textContent =
+        "Firebase bağlantısı hazır";
+
+      status.style.color =
+        "#4ade80";
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      const status =
+        document.getElementById("firebaseStatus");
+
+      status.textContent =
+        "Firebase bağlantı hatası";
+
+      status.style.color =
+        "#ff6b6b";
+
+    }
+
+  </script>
+
+
+  <!-- MAIN JAVASCRIPT -->
+  <script>
+
+    let selectedBookingService =
+      "Genel Seyahat Talebi";
+
+
+    function showToast(message, type = "success") {
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.className =
+        "toast show " + type;
+
+
+      setTimeout(() => {
+
+        toast.className = "toast";
+
+      }, 4500);
+
+    }
+
+
+    function openBooking(serviceName) {
+
+      selectedBookingService =
+        serviceName ||
+        "Genel Seyahat Talebi";
+
+
+      document.getElementById(
+        "selectedService"
+      ).textContent =
+        selectedBookingService;
+
+
+      document.getElementById(
+        "bookingModal"
+      ).classList.add("active");
+
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+    }
+
+
+    function closeBooking() {
+
+      document.getElementById(
+        "bookingModal"
+      ).classList.remove("active");
+
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    document.getElementById(
+      "bookingModal"
+    ).addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target ===
+          this
+        ) {
+
+          closeBooking();
+
+        }
+
+      }
+    );
+
+
+    function startSearch() {
+
+      const destination =
+        document.getElementById(
+          "searchDestination"
+        ).value.trim();
+
+
+      const checkin =
+        document.getElementById(
+          "searchCheckin"
+        ).value;
+
+
+      const checkout =
+        document.getElementById(
+          "searchCheckout"
+        ).value;
+
+
+      const guests =
+        document.getElementById(
+          "searchGuests"
+        ).value;
+
+
+      if (!destination) {
+
+        showToast(
+          "Lütfen gitmek istediğiniz yeri yazın.",
+          "error"
+        );
+
+        document.getElementById(
+          "searchDestination"
+        ).focus();
+
+        return;
+
+      }
+
+
+      if (
+        checkin &&
+        checkout &&
+        checkout < checkin
+      ) {
+
+        showToast(
+          "Çıkış tarihi giriş tarihinden önce olamaz.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const resultInfo =
+        document.getElementById(
+          "searchResultInfo"
+        );
+
+
+      resultInfo.textContent =
+        destination +
+        " için " +
+        guests +
+        " misafir adına seçenekler hazırlanıyor.";
+
+
+      document.getElementById(
+        "searchResults"
+      ).classList.add("show");
+
+
+      document.getElementById(
+        "searchResults"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+
+    async function saveBookingToFirebase(
+      booking
+    ) {
+
+      if (
+        !window.NOVAERA_FIREBASE
+      ) {
+
+        throw new Error(
+          "Firebase henüz hazır değil."
+        );
+
+      }
+
+
+      const {
+        db,
+        collection,
+        addDoc,
+        serverTimestamp
+      } =
+        window.NOVAERA_FIREBASE;
+
+
+      const docRef =
+        await addDoc(
+          collection(
+            db,
+            "bookings"
+          ),
+          {
+
+            bookingNumber:
+              booking.bookingNumber,
+
+            serviceType:
+              booking.serviceType,
+
+            packageName:
+              booking.packageName,
+
+            destination:
+              booking.destination,
+
+            name:
+              booking.name,
+
+            email:
+              booking.email,
+
+            phone:
+              booking.phone,
+
+            guests:
+              Number(
+                booking.guests
+              ),
+
+            checkin:
+              booking.checkin ||
+              null,
+
+            checkout:
+              booking.checkout ||
+              null,
+
+            notes:
+              booking.notes ||
+              "",
+
+            status:
+              "Yeni",
+
+            source:
+              "novaera-web",
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+      return docRef.id;
+
+    }
+
+
+    document.getElementById(
+      "bookingForm"
+    ).addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const submitButton =
+          document.getElementById(
+            "bookingSubmit"
+          );
+
+
+        submitButton.disabled =
+          true;
+
+
+        submitButton.textContent =
+          "Gönderiliyor...";
+
+
+        const bookingNumber =
+          "NOVA-" +
+          Date.now()
+            .toString()
+            .slice(-8);
+
+
+        const booking = {
+
+          bookingNumber,
+
+          serviceType:
+            "Seyahat",
+
+          packageName:
+            selectedBookingService,
+
+          destination:
+            document.getElementById(
+              "searchDestination"
+            ).value.trim(),
+
+          name:
+            document.getElementById(
+              "bookingName"
+            ).value.trim(),
+
+          email:
+            document.getElementById(
+              "bookingEmail"
+            ).value.trim(),
+
+          phone:
+            document.getElementById(
+              "bookingPhone"
+            ).value.trim(),
+
+          guests:
+            document.getElementById(
+              "bookingGuests"
+            ).value,
+
+          checkin:
+            document.getElementById(
+              "bookingCheckin"
+            ).value,
+
+          checkout:
+            document.getElementById(
+              "bookingCheckout"
+            ).value,
+
+          notes:
+            document.getElementById(
+              "bookingNotes"
+            ).value.trim()
+
+        };
+
+
+        try {
+
+          const id =
+            await saveBookingToFirebase(
+              booking
+            );
+
+
+          showToast(
+            "Talebiniz başarıyla alındı. Rezervasyon No: " +
+              bookingNumber,
+            "success"
+          );
+
+
+          this.

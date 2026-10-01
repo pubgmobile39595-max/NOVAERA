@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="NOVAERA — Dünyayı keşfetmenin yeni yolu. Otel, tur, transfer ve seyahat deneyimleri."
+  >
+
+  <meta name="theme-color" content="#07111f">
+
+  <title>NOVAERA — Travel & Experiences</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1728;
+      --card: #101f33;
+      --card2: #13263d;
+      --text: #f7f9fc;
+      --muted: #9caec3;
+      --line: rgba(255,255,255,.09);
+      --accent: #4fd1c5;
+      --accent2: #63b3ed;
+      --gold: #f6c453;
+      --danger: #ff6b6b;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(
+          circle at 20% 0%,
+          rgba(79,209,197,.10),
+          transparent 30%
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7,17,31,.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #06111c;
+      font-weight: 1000;
+      box-shadow: 0 10px 30px rgba(79,209,197,.22);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 13px;
+    }
+
+    .primary-btn {
+      border: 0;
+      border-radius: 13px;
+      padding: 12px 18px;
+      font-weight: 900;
+      color: #06111c;
+      background:
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(79,209,197,.15);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      top: 30px;
+      background: rgba(99,179,237,.10);
+      filter: blur(80px);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      padding: 80px 0 110px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(79,209,197,.22);
+      background: rgba(79,209,197,.06);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 86px);
+      line-height: .98;
+      letter-spacing: -4px;
+      max-width: 900px;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          #fff
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 650px;
+      margin-top: 25px;
+    }
+
+    /* SEARCH */
+
+    .search-box {
+      margin-top: 38px;
+      background: rgba(13,30,49,.94);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+      gap: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-field {
+      min-height: 64px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid transparent;
+    }
+
+    .search-field:focus-within {
+      border-color: rgba(79,209,197,.35);
+    }
+
+    .search-field label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .search-field input,
+    .search-field select {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .search-field select option {
+      background: var(--bg2);
+    }
+
+    .search-button {
+      border: 0;
+      border-radius: 15px;
+      padding: 0 24px;
+      font-weight: 900;
+      color: #06111c;
+      background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+      );
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 550px;
+    }
+
+    /* CATEGORY */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .category {
+      min-height: 150px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.015)
+        );
+      transition: .25s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79,209,197,.25);
+    }
+
+    .category-icon {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .category h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .category p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* DESTINATIONS */
+
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .destination {
+      min-height: 280px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          160deg,
+          #16344e,
+          #0c1b2d
+        );
+      cursor: pointer;
+    }
+
+    .destination::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .destination-content {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+    }
+
+    .destination-content h3 {
+      font-size: 24px;
+    }
+
+    .destination-content p {
+      color: #b9c8d8;
+      font-size: 13px;
+    }
+
+    .destination:nth-child(2) {
+      background:
+        linear-gradient(
+          160deg,
+          #315d68,
+          #112838
+        );
+    }
+
+    .destination:nth-child(3) {
+      background:
+        linear-gradient(
+          160deg,
+          #6b4b2d,
+          #1c2431
+        );
+    }
+
+    .destination:nth-child(4) {
+      background:
+        linear-gradient(
+          160deg,
+          #3c315e,
+          #10192b
+        );
+    }
+
+    /* DEALS */
+
+    .deals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .deal {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .deal-image {
+      height: 190px;
+      display: flex;
+      align-items: end;
+      padding: 18px;
+      background:
+        linear-gradient(
+          135deg,
+          #173b54,
+          #132033
+        );
+    }
+
+    .deal:nth-child(2) .deal-image {
+      background:
+        linear-gradient(
+          135deg,
+          #4d3a2c,
+          #172234
+        );
+    }
+
+    .deal:nth-child(3) .deal-image {
+      background:
+        linear-gradient(
+          135deg,
+          #3b3159,
+          #111d31
+        );
+    }
+
+    .deal-tag {
+      background: var(--gold);
+      color: #17120a;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 1000;
+    }
+
+    .deal-body {
+      padding: 20px;
+    }
+
+    .deal-body h3 {
+      margin-bottom: 7px;
+    }
+
+    .deal-body p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .deal-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+    }
+
+    .deal-price strong {
+      font-size: 21px;
+    }
+
+    /* WHY */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .why-card {
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .why-card span {
+      font-size: 30px;
+    }
+
+    .why-card h3 {
+      margin: 17px 0 8px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      border: 1px solid rgba(79,209,197,.15);
+      border-radius: 30px;
+      padding: 50px;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(79,209,197,.14),
+          transparent 30%
+        ),
+        var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 50px 0 30px;
+      background: #050d17;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 15px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      max-width: 350px;
+      margin-top: 12px;
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* MODAL */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(620px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 10px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      outline: 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      padding: 13px;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .success-box.active {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .booking-number {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: rgba(79,209,197,.09);
+      color: var(--accent);
+      font-weight: 1000;
+      letter-spacing: 1px;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      z-index: 3000;
+      right: 20px;
+      bottom: 20px;
+      max-width: 340px;
+      padding: 14px 17px;
+      background: #102238;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      transform: translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .search-box {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-button {
+        min-height: 60px;
+      }
+
+      .categories,
+      .destinations {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .deals,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .nav {
+        height: 68px;
+      }
+
+      .nav-actions .primary-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 65px 0 75px;
+      }
+
+      h1 {
+        font-size: 49px;
+        letter-spacing: -2.5px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .search-box {
+        grid-template-columns: 1fr;
+      }
+
+      .search-button {
+        min-height: 58px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head h2 {
+        font-size: 28px;
+      }
+
+      .categories,
+      .destinations {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .destination {
+        min-height: 220px;
+      }
+
+      .cta {
+        padding: 30px 22px;
+        display: block;
+      }
+
+      .cta .primary-btn {
+        margin-top: 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#" class="logo">
+        <span class="logo-mark">N</span>
+        NOVAERA
+      </a>
+
+      <nav>
+        <a href="#kesfet">Keşfet</a>
+        <a href="#konaklama">Konaklama</a>
+        <a href="#turlar">Turlar</a>
+        <a href="#neden">Neden NOVAERA?</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button
+          class="icon-btn"
+          id="loginBtn"
+          title="Hesabım"
+        >
+          👤
+        </button>
+
+        <button
+          class="primary-btn"
+          id="reservationBtn"
+        >
+          Rezervasyon
+        </button>
+
+        <button
+          class="icon-btn mobile-menu"
+          id="mobileMenuBtn"
+        >
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero" id="kesfet">
+
+      <div class="container hero-content">
+
+        <div class="eyebrow">
+          ✦ YENİ NESİL SEYAHAT PLATFORMU
+        </div>
+
+        <h1>
+          Dünyayı
+          <span class="gradient-text">
+            keşfetmenin
+          </span>
+          yeni yolu.
+        </h1>
+
+        <p>
+          Otelleri, turları, transferleri ve özel
+          seyahat deneyimlerini tek bir platformda
+          keşfet.
+        </p>
+
+
+        <div class="search-box">
+
+          <div class="search-field">
+            <label>Nereye?</label>
+
+            <input
+              id="destination"
+              type="text"
+              placeholder="Şehir veya destinasyon"
+            >
+          </div>
+
+
+          <div class="search-field">
+            <label>Giriş</label>
+
+            <input
+              id="checkin"
+              type="date"
+            >
+          </div>
+
+
+          <div class="search-field">
+            <label>Çıkış</label>
+
+            <input
+              id="checkout"
+              type="date"
+            >
+          </div>
+
+
+          <div class="search-field">
+            <label>Misafir</label>
+
+            <select id="guests">
+              <option value="1">1 kişi</option>
+              <option value="2" selected>2 kişi</option>
+              <option value="3">3 kişi</option>
+              <option value="4">4 kişi</option>
+              <option value="5">5 kişi</option>
+              <option value="6">6 kişi</option>
+            </select>
+          </div>
+
+
+          <button
+            class="search-button"
+            id="searchBtn"
+          >
+            Ara
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>Ne arıyorsun?</h2>
+            <p>
+              Seyahatinin her bölümünü tek yerden
+              planla.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="categories">
+
+          <div
+            class="category"
+            data-search="hotel"
+          >
+            <div class="category-icon">🏨</div>
+            <h3>Oteller</h3>
+            <p>
+              Şehir otellerinden resortlara kadar.
+            </p>
+          </div>
+
+
+          <div
+            class="category"
+            data-search="tour"
+          >
+            <div class="category-icon">🗺️</div>
+            <h3>Turlar</h3>
+            <p>
+              Yeni yerler ve unutulmaz deneyimler.
+            </p>
+          </div>
+
+
+          <div
+            class="category"
+            data-search="transfer"
+          >
+            <div class="category-icon">🚐</div>
+            <h3>Transfer</h3>
+            <p>
+              Havalimanı ve özel ulaşım çözümleri.
+            </p>
+          </div>
+
+
+          <div
+            class="category"
+            data-search="vip"
+          >
+            <div class="category-icon">💎</div>
+            <h3>VIP Seyahat</h3>
+            <p>
+              Kişiye özel premium seyahatler.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DESTINATIONS -->
+
+    <section id="konaklama">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>Popüler destinasyonlar</h2>
+            <p>
+              Türkiye'nin sevilen noktalarından
+              keşfetmeye başla.
+            

@@ -43,7 +43,38 @@
     html {
       scroll-behavior: smooth;
     }
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyC56d_Cnh2lZIimgifSkiqk5KggU-aX1G4",
+    authDomain: "novaera-2f0d2.firebaseapp.com",
+    projectId: "novaera-2f0d2",
+    storageBucket: "novaera-2f0d2.firebasestorage.app",
+    messagingSenderId: "877581197546",
+    appId: "1:877581197546:web:2d24a9989d21505f2c3793",
+    measurementId: "G-VSLTN4QBL8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.NOVAERA_FIREBASE = {
+    app,
+    db,
+    collection,
+    addDoc,
+    serverTimestamp
+  };
+
+  console.log("NOVAERA Firebase bağlantısı başarılı.");
+</script>
     body {
       font-family:
         Inter,

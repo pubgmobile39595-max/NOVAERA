@@ -2,10 +2,15 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NOVAERA — Dünyayı keşfetmenin yeni yolu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOVAERA — Yeni Nesil Seyahat</title>
+
+<meta name="description"
+content="NOVAERA ile otel, tur, transfer ve VIP seyahat deneyimlerini planla.">
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -18,11 +23,15 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#07101c;
+  background:#07111f;
   color:#fff;
+  line-height:1.5;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
@@ -35,327 +44,410 @@ a{
   text-decoration:none;
 }
 
-.container{
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(7,16,28,.94);
+  z-index:1000;
+  background:rgba(7,17,31,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
+  max-width:1200px;
+  margin:auto;
   height:72px;
+  padding:0 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:900;
+  font-size:24px;
+  font-weight:800;
   letter-spacing:3px;
 }
 
 .logo span{
-  color:#59a9ff;
+  color:#65d9ff;
 }
 
-.navLinks{
-  display:flex;
-  gap:25px;
-}
-
-.navLinks a{
-  color:#b8c5d8;
-  font-size:14px;
-}
-
-.navLinks a:hover{
+.menu-btn{
+  width:45px;
+  height:45px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;
+  background:#101d30;
   color:#fff;
+  font-size:22px;
 }
 
-.menuBtn{
+.menu{
   display:none;
-  background:none;
-  border:0;
-  color:#fff;
-  font-size:27px;
+  position:absolute;
+  right:20px;
+  top:65px;
+  width:220px;
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  padding:10px;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
-/* HERO */
+.menu.show{
+  display:block;
+}
+
+.menu a{
+  display:block;
+  padding:13px;
+  border-radius:10px;
+}
+
+.menu a:hover{
+  background:#15253b;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:650px;
   display:flex;
   align-items:center;
+  position:relative;
+  overflow:hidden;
   background:
-    linear-gradient(90deg,rgba(4,10,18,.95),rgba(4,10,18,.45)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
+  linear-gradient(rgba(4,12,24,.72),rgba(4,12,24,.92)),
+  url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=85")
+  center/cover;
 }
 
-.heroContent{
-  max-width:720px;
+.hero-inner{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
 }
 
 .badge{
   display:inline-block;
   padding:8px 13px;
-  border:1px solid rgba(255,255,255,.15);
+  border:1px solid rgba(101,217,255,.35);
   border-radius:30px;
-  background:rgba(255,255,255,.06);
-  color:#a9cfff;
-  margin-bottom:18px;
+  color:#65d9ff;
+  background:rgba(101,217,255,.08);
+  margin-bottom:20px;
   font-size:13px;
 }
 
 .hero h1{
   font-size:clamp(42px,7vw,78px);
-  line-height:.98;
-  margin-bottom:22px;
+  line-height:1;
+  max-width:850px;
+  margin-bottom:25px;
 }
 
 .hero h1 span{
-  color:#62afff;
+  color:#65d9ff;
 }
 
 .hero p{
-  color:#c0ccdc;
+  max-width:700px;
+  color:#b8c5d5;
   font-size:18px;
-  line-height:1.6;
-  margin-bottom:30px;
+  margin-bottom:35px;
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
-.searchBox{
-  background:rgba(10,20,34,.92);
-  border:1px solid rgba(255,255,255,.14);
-  padding:15px;
-  border-radius:18px;
+.search-box{
+  max-width:1100px;
+  background:rgba(10,23,40,.95);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
+  padding:18px;
   display:grid;
-  grid-template-columns:1.4fr 1fr 1fr .8fr auto;
-  gap:10px;
+  grid-template-columns:2fr 1fr 1fr 1fr auto;
+  gap:12px;
+  box-shadow:0 25px 70px rgba(0,0,0,.4);
 }
 
-.searchBox input,
-.searchBox select{
-  min-width:0;
-  border:1px solid #2a3b53;
-  background:#0a1422;
-  color:#fff;
-  padding:14px;
-  border-radius:11px;
-  outline:none;
+.field{
+  background:#111f32;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:13px;
+  padding:12px 14px;
 }
 
-.searchBtn{
+.field label{
+  display:block;
+  font-size:11px;
+  color:#8292a7;
+  margin-bottom:4px;
+}
+
+.field input,
+.field select{
+  width:100%;
+  background:none;
   border:0;
-  background:#4d9cff;
+  outline:0;
   color:#fff;
-  border-radius:11px;
-  padding:0 22px;
-  font-weight:800;
 }
 
-/* SECTIONS */
+.field input::placeholder{
+  color:#718198;
+}
+
+.search-btn{
+  border:0;
+  border-radius:13px;
+  background:#65d9ff;
+  color:#03101c;
+  font-weight:800;
+  padding:0 25px;
+  min-height:58px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-  padding:85px 0;
+  padding:90px 20px;
 }
 
-.sectionTitle{
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
   font-size:38px;
   margin-bottom:10px;
 }
 
-.sectionText{
-  color:#8fa0b7;
-  margin-bottom:30px;
+.section-text{
+  color:#91a0b3;
+  margin-bottom:35px;
 }
 
-/* RESULTS */
+/* =========================
+   SERVICES
+========================= */
 
-#results{
-  display:none;
-  background:#0a1422;
-}
-
-#results.show{
-  display:block;
-}
-
-.resultGrid{
+.services{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:18px;
 }
 
-.resultCard{
-  background:#101d2d;
-  border:1px solid #22334b;
-  border-radius:18px;
-  padding:22px;
+.service-card{
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
+  padding:28px;
+  border-radius:20px;
+  transition:.25s;
 }
 
-.resultCard h3{
-  margin-bottom:8px;
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:#65d9ff;
 }
 
-.resultCard p{
-  color:#91a1b7;
+.service-icon{
+  font-size:35px;
   margin-bottom:18px;
 }
 
-.resultCard button{
-  border:0;
-  padding:10px 15px;
-  border-radius:9px;
-  background:#4d9cff;
-  color:#fff;
+.service-card h3{
+  margin-bottom:8px;
 }
 
-/* SERVICES */
-
-.serviceGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.service{
-  padding:25px;
-  min-height:180px;
-  background:#0d1929;
-  border:1px solid #21334a;
-  border-radius:18px;
-  transition:.2s;
-}
-
-.service:hover{
-  transform:translateY(-4px);
-  border-color:#4d9cff;
-}
-
-.serviceIcon{
-  font-size:32px;
+.service-card p{
+  color:#8797aa;
+  font-size:14px;
   margin-bottom:20px;
 }
 
-.service h3{
-  margin-bottom:9px;
+.card-btn{
+  border:0;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#16283d;
+  color:#65d9ff;
 }
 
-.service p{
-  color:#8495ab;
-  line-height:1.5;
-}
+/* =========================
+   DESTINATIONS
+========================= */
 
-/* DESTINATIONS */
-
-.destinationGrid{
+.destinations{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  gap:18px;
 }
 
 .destination{
-  height:260px;
+  height:280px;
   border-radius:20px;
   overflow:hidden;
   position:relative;
-  background-size:cover;
-  background-position:center;
+  cursor:pointer;
 }
 
-.destination:after{
-  content:"";
+.destination img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.destination:hover img{
+  transform:scale(1.08);
+}
+
+.destination-info{
   position:absolute;
-  inset:0;
-  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  left:0;
+  right:0;
+  bottom:0;
+  padding:25px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
 }
 
-.destinationInfo{
-  position:absolute;
-  z-index:2;
-  bottom:20px;
-  left:20px;
+.destination-info small{
+  color:#9eacbd;
 }
 
-.destinationInfo p{
-  color:#b9c5d5;
-  margin-top:5px;
-}
+/* =========================
+   EXPERIENCES
+========================= */
 
-/* EXPERIENCES */
-
-.experienceGrid{
+.experiences{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .experience{
-  background:#0d1929;
-  border:1px solid #21334a;
-  border-radius:18px;
-  padding:25px;
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  overflow:hidden;
 }
 
-.experience h3{
-  margin-bottom:10px;
+.experience img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
 }
 
-.experience p{
-  color:#8999af;
-  line-height:1.6;
+.experience-content{
+  padding:22px;
 }
 
-/* WHY */
+.experience-content p{
+  color:#8c9bad;
+  font-size:14px;
+}
+
+/* =========================
+   WHY
+========================= */
 
 .why{
-  background:#091421;
-}
-
-.whyGrid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.whyCard{
+.why-card{
   padding:25px;
-  border:1px solid #21334a;
   border-radius:18px;
-  background:#0d1928;
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
 }
 
-.whyCard h3{
-  margin-bottom:10px;
+.why-card strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:8px;
 }
 
-.whyCard p{
-  color:#8999af;
-  line-height:1.6;
+.why-card span{
+  color:#8797aa;
+  font-size:14px;
 }
 
-/* CTA */
+/* =========================
+   RESULTS
+========================= */
+
+.results-section{
+  display:none;
+  background:#091625;
+}
+
+.results-section.show{
+  display:block;
+}
+
+.results{
+  display:grid;
+  gap:15px;
+}
+
+.result-card{
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.result-type{
+  color:#65d9ff;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.result-card p{
+  color:#8d9bae;
+}
+
+.result-action{
+  border:0;
+  background:#65d9ff;
+  color:#03101c;
+  padding:11px 18px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* =========================
+   CTA
+========================= */
 
 .cta{
-  padding:80px 20px;
   text-align:center;
   background:
-    linear-gradient(90deg,rgba(25,76,130,.8),rgba(9,22,38,.9)),
-    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80")
-    center/cover;
+  linear-gradient(rgba(6,15,28,.85),rgba(6,15,28,.95)),
+  url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=80")
+  center/cover;
 }
 
 .cta h2{
@@ -364,757 +456,508 @@ section{
 }
 
 .cta p{
-  color:#d1dbea;
+  color:#9baabd;
   margin-bottom:25px;
 }
 
-.cta button{
-  border:0;
-  padding:14px 25px;
-  border-radius:11px;
-  background:#fff;
-  color:#07101c;
+.cta-btn{
+  display:inline-block;
+  background:#65d9ff;
+  color:#03101c;
+  padding:14px 24px;
+  border-radius:12px;
   font-weight:800;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  padding:35px 0;
-  background:#040911;
-  border-top:1px solid #172438;
+  padding:40px 20px;
+  background:#040b14;
+  border-top:1px solid rgba(255,255,255,.07);
 }
 
-.footerInner{
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   gap:20px;
-  color:#73849b;
+  color:#718095;
   font-size:13px;
 }
 
-/* MODAL */
+/* =========================
+   MODAL
+========================= */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:100;
+  background:rgba(0,0,0,.75);
+  z-index:3000;
   display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
-  background:rgba(0,0,0,.78);
 }
 
 .modal.show{
   display:flex;
 }
 
-.modalBox{
+.modal-box{
   width:100%;
   max-width:550px;
   max-height:90vh;
   overflow:auto;
-  background:#101b2b;
-  border:1px solid #30435e;
-  border-radius:20px;
+  background:#0c192a;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
   padding:25px;
-}
-
-.modalHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
+  position:relative;
 }
 
 .close{
-  width:35px;
-  height:35px;
+  position:absolute;
+  right:18px;
+  top:15px;
   border:0;
-  border-radius:9px;
-  background:#1c2a3d;
+  background:none;
   color:#fff;
-  font-size:21px;
+  font-size:25px;
 }
 
-.formGroup{
+.modal-box h2{
+  margin-bottom:20px;
+}
+
+.form-group{
   margin-bottom:14px;
 }
 
-.formGroup label{
+.form-group label{
   display:block;
-  color:#9cacbf;
+  color:#91a0b3;
   font-size:13px;
-  margin-bottom:7px;
+  margin-bottom:6px;
 }
 
-.formGroup input,
-.formGroup textarea{
+.form-group input,
+.form-group textarea,
+.form-group select{
   width:100%;
   padding:13px;
-  border-radius:10px;
-  border:1px solid #30415a;
-  background:#09121f;
-  color:#fff;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.1);
   outline:none;
+  background:#111f32;
+  color:#fff;
 }
 
-.formGroup textarea{
-  min-height:100px;
+.form-group textarea{
+  min-height:90px;
   resize:vertical;
 }
 
-.submitBtn{
+.submit-btn{
   width:100%;
   padding:14px;
   border:0;
-  border-radius:10px;
-  background:#4d9cff;
-  color:#fff;
-  font-weight:800;
-}
-
-/* TOAST */
-
-#toast{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:300;
-  display:none;
-  max-width:360px;
-  padding:14px 18px;
   border-radius:12px;
-  background:#17263a;
-  border:1px solid #405674;
+  background:#65d9ff;
+  color:#03101c;
+  font-weight:800;
+  margin-top:8px;
 }
 
-#toast.show{
-  display:block;
-}
-
-/* ADMIN LOGIN */
+/* =========================
+   ADMIN
+========================= */
 
 #adminArea{
   display:none;
+  min-height:100vh;
+  background:#050c15;
 }
 
 #adminArea.show{
   display:block;
 }
 
-.adminLogin{
+.admin-login{
   min-height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   padding:20px;
-  background:
-    radial-gradient(circle at top,#1a3153,#050a11 65%);
 }
 
-.adminLoginBox{
+.admin-login-box{
   width:100%;
-  max-width:430px;
-  padding:32px;
-  border-radius:22px;
-  background:#101a29;
-  border:1px solid #30435c;
-  box-shadow:0 25px 80px rgba(0,0,0,.5);
+  max-width:420px;
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:30px;
 }
 
-.adminLogo{
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:3px;
-  margin-bottom:5px;
+.admin-login-box h1{
+  margin-bottom:8px;
 }
 
-.adminLogo span{
-  color:#59a9ff;
-}
-
-.adminSubtitle{
-  color:#8191a8;
+.admin-login-box p{
+  color:#8493a6;
   margin-bottom:25px;
 }
 
-.adminInput{
+.admin-input{
   width:100%;
   padding:14px;
-  margin-bottom:13px;
-  border-radius:10px;
-  border:1px solid #30415b;
-  background:#080f1a;
+  background:#111f32;
+  border:1px solid rgba(255,255,255,.1);
   color:#fff;
+  border-radius:11px;
+  margin-bottom:12px;
   outline:none;
 }
 
-.adminLoginBtn{
+.admin-login-btn{
   width:100%;
   padding:14px;
   border:0;
-  border-radius:10px;
-  background:#4d9cff;
-  color:#fff;
+  border-radius:11px;
+  background:#65d9ff;
+  color:#03101c;
   font-weight:800;
 }
 
-.adminError{
-  color:#ff8585;
-  margin-top:12px;
-  font-size:13px;
-}
-
-/* ADMIN */
-
-.adminTop{
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 24px;
-  background:#0b1421;
-  border-bottom:1px solid #1d2c40;
-}
-
-.adminBrand{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:2px;
-}
-
-.adminBrand span{
-  color:#59a9ff;
-}
-
-.adminTopRight{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.adminUser{
-  color:#8292a8;
-  font-size:13px;
-}
-
-.adminLogout{
-  padding:9px 13px;
-  border:1px solid #354860;
-  background:#121f31;
-  color:#fff;
-  border-radius:9px;
-}
-
-.adminLayout{
-  min-height:calc(100vh - 70px);
-  display:flex;
-}
-
-.adminSidebar{
-  width:230px;
-  flex-shrink:0;
-  padding:18px 13px;
-  background:#080f19;
-  border-right:1px solid #1b293c;
-}
-
-.adminMenuTitle{
-  color:#63738a;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1.3px;
-  padding:10px;
-}
-
-.adminSideBtn{
-  width:100%;
-  text-align:left;
-  padding:12px;
-  border:0;
-  border-radius:9px;
-  background:transparent;
-  color:#aebbd0;
-  margin-bottom:3px;
-}
-
-.adminSideBtn:hover,
-.adminSideBtn.active{
-  background:#142238;
-  color:#fff;
-}
-
-.adminMain{
-  flex:1;
-  padding:28px;
-  min-width:0;
-}
-
-.adminSection{
+.admin-dashboard{
   display:none;
 }
 
-.adminSection.active{
+.admin-dashboard.show{
   display:block;
 }
 
-.adminTitle{
-  font-size:30px;
-  margin-bottom:7px;
+.admin-top{
+  padding:20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.adminSubtitle{
-  color:#8191a8;
-  margin-bottom:24px;
+.admin-top strong{
+  letter-spacing:2px;
+}
+
+.admin-logout{
+  border:1px solid rgba(255,255,255,.1);
+  background:#111f32;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:10px;
+}
+
+.admin-content{
+  max-width:1400px;
+  margin:auto;
+  padding:30px 20px;
 }
 
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:15px;
-  margin-bottom:22px;
+  margin-bottom:30px;
 }
 
 .stat{
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
   padding:20px;
-  background:#101a29;
-  border:1px solid #21334a;
+}
+
+.stat small{
+  color:#8291a5;
+}
+
+.stat strong{
+  display:block;
+  font-size:30px;
+  margin-top:5px;
+}
+
+.admin-table-wrap{
+  overflow:auto;
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,.08);
   border-radius:16px;
 }
 
-.statLabel{
-  color:#7e8fa7;
-  font-size:13px;
-  margin-bottom:10px;
-}
-
-.statValue{
-  font-size:30px;
-  font-weight:900;
-}
-
-.adminPanel{
-  background:#101a29;
-  border:1px solid #21334a;
-  border-radius:17px;
-  overflow:hidden;
-  margin-bottom:20px;
-}
-
-.adminPanelHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  padding:18px;
-  border-bottom:1px solid #21334a;
-}
-
-.adminPanelTitle{
-  font-weight:800;
-  font-size:18px;
-}
-
-.adminSearch{
-  max-width:320px;
+.admin-table{
   width:100%;
-  padding:10px 12px;
-  border-radius:9px;
-  border:1px solid #30415a;
-  background:#080f1a;
-  color:#fff;
-}
-
-.tableWrap{
-  overflow-x:auto;
-}
-
-.adminTable{
-  width:100%;
-  min-width:800px;
+  min-width:850px;
   border-collapse:collapse;
 }
 
-.adminTable th,
-.adminTable td{
-  padding:13px 15px;
+.admin-table th,
+.admin-table td{
   text-align:left;
-  border-bottom:1px solid #1d2b3e;
-  font-size:13px;
+  padding:15px;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.adminTable th{
-  color:#718198;
-  font-size:11px;
-  text-transform:uppercase;
+.admin-table th{
+  color:#8c9bad;
+  font-size:12px;
 }
 
-.adminTable td{
-  color:#d7e0ed;
-}
-
-.adminAction{
-  border:1px solid #334861;
-  background:#142237;
-  color:#fff;
-  padding:7px 10px;
-  border-radius:8px;
+.admin-table td{
+  font-size:14px;
 }
 
 .status{
-  display:inline-flex;
-  padding:6px 9px;
+  display:inline-block;
+  padding:5px 9px;
   border-radius:20px;
-  font-size:11px;
-  font-weight:800;
+  background:#16283d;
+  color:#65d9ff;
+  font-size:12px;
 }
 
-.status-yeni{
-  background:#173653;
-  color:#65b1ff;
-}
-
-.status-inceleniyor{
-  background:#463717;
-  color:#ffd15e;
-}
-
-.status-onaylandi{
-  background:#163b29;
-  color:#61e49b;
-}
-
-.status-iptal{
-  background:#461f26;
-  color:#ff8993;
-}
-
-.placeholder{
-  text-align:center;
-  padding:55px 20px;
-  color:#7f90a7;
-}
-
-.placeholderIcon{
-  font-size:44px;
-  margin-bottom:12px;
-}
-
-/* ADMIN MODAL */
-
-.adminModal{
-  position:fixed;
-  inset:0;
-  z-index:200;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:rgba(0,0,0,.78);
-}
-
-.adminModal.show{
-  display:flex;
-}
-
-.adminModalBox{
-  width:100%;
-  max-width:650px;
-  max-height:90vh;
-  overflow:auto;
-  padding:24px;
-  border-radius:19px;
-  background:#101a29;
-  border:1px solid #344962;
-}
-
-.detailGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:11px;
-}
-
-.detail{
-  padding:13px;
-  border-radius:11px;
-  background:#080f1a;
-  border:1px solid #1d2b3e;
-}
-
-.detail.full{
-  grid-column:1/-1;
-}
-
-.detailLabel{
-  color:#6f8097;
-  font-size:11px;
-  margin-bottom:5px;
-}
-
-.detailValue{
-  word-break:break-word;
-}
-
-.statusControls{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
-}
-
-.statusControls select{
-  flex:1;
-  padding:12px;
-  border-radius:9px;
-  border:1px solid #30415a;
-  background:#080f1a;
-  color:#fff;
-}
-
-.saveStatus{
-  padding:12px 18px;
+.admin-action{
   border:0;
-  border-radius:9px;
-  background:#4d9cff;
-  color:#fff;
-  font-weight:800;
+  background:#16283d;
+  color:#65d9ff;
+  padding:8px 12px;
+  border-radius:8px;
 }
 
-/* MOBILE */
+.empty{
+  padding:30px;
+  text-align:center;
+  color:#8290a3;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
-  .searchBox{
+  .search-box{
     grid-template-columns:1fr 1fr;
   }
 
-  .searchBtn{
-    padding:14px;
+  .search-btn{
+    grid-column:1/-1;
   }
 
-  .serviceGrid{
-    grid-template-columns:repeat(2,1fr);
+  .services{
+    grid-template-columns:1fr 1fr;
   }
 
-  .destinationGrid{
-    grid-template-columns:repeat(2,1fr);
+  .destinations{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .experiences{
+    grid-template-columns:1fr;
+  }
+
+  .why{
+    grid-template-columns:1fr;
   }
 
   .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .adminSidebar{
-    width:190px;
+    grid-template-columns:1fr 1fr;
   }
 
 }
 
-@media(max-width:650px){
-
-  .navLinks{
-    display:none;
-  }
-
-  .menuBtn{
-    display:block;
-  }
-
-  .searchBox{
-    grid-template-columns:1fr;
-  }
-
-  .resultGrid,
-  .experienceGrid,
-  .whyGrid{
-    grid-template-columns:1fr;
-  }
-
-  .serviceGrid,
-  .destinationGrid{
-    grid-template-columns:1fr 1fr;
-  }
+@media(max-width:600px){
 
   .hero{
     min-height:700px;
   }
 
   .hero h1{
-    font-size:47px;
+    font-size:45px;
   }
 
-  section{
-    padding:60px 0;
+  .hero p{
+    font-size:16px;
   }
 
-  .footerInner{
-    flex-direction:column;
-  }
-
-  .adminLayout{
-    display:block;
-  }
-
-  .adminSidebar{
-    width:100%;
-    display:flex;
-    overflow-x:auto;
-    padding:9px;
-    border-right:0;
-    border-bottom:1px solid #1d2b3e;
-  }
-
-  .adminMenuTitle{
-    display:none;
-  }
-
-  .adminSideBtn{
-    width:auto;
-    white-space:nowrap;
-    margin:0 3px;
-  }
-
-  .adminMain{
-    padding:18px 12px;
-  }
-
-  .adminTop{
-    padding:0 13px;
-  }
-
-  .adminUser{
-    display:none;
-  }
-
-  .detailGrid{
+  .search-box{
     grid-template-columns:1fr;
   }
 
-  .detail.full{
+  .search-btn{
     grid-column:auto;
   }
 
-  .statusControls{
+  .services,
+  .destinations,
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .result-card{
+    align-items:flex-start;
     flex-direction:column;
   }
 
+  .result-action{
+    width:100%;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+  section{
+    padding:65px 15px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
-
 <!-- =====================================================
-     NORMAL NOVAERA SITE
+     NORMAL SITE
 ===================================================== -->
 
 <div id="normalSite">
 
 <header>
 
-  <div class="container nav">
+  <div class="nav">
 
-    <div class="logo">
+    <a href="#" class="logo">
       NOVA<span>ERA</span>
-    </div>
+    </a>
 
-    <nav class="navLinks">
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button">
+      ☰
+    </button>
+
+    <nav
+      class="menu"
+      id="menu">
 
       <a href="#services">Hizmetler</a>
       <a href="#destinations">Destinasyonlar</a>
       <a href="#experiences">Deneyimler</a>
-      <a href="#why">Neden NOVAERA</a>
+      <a href="#contact">İletişim</a>
+      <a href="#admin">Admin</a>
 
     </nav>
-
-    <button
-      class="menuBtn"
-      onclick="toggleMobileMenu()"
-    >
-      ☰
-    </button>
 
   </div>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-  <div class="container">
+  <div class="hero-inner">
 
-    <div class="heroContent">
+    <div class="badge">
+      YENİ NESİL SEYAHAT PLATFORMU
+    </div>
 
-      <div class="badge">
-        Yeni nesil seyahat deneyimi
-      </div>
+    <h1>
+      Dünyayı keşfetmenin
+      <span>yeni yolu.</span>
+    </h1>
 
-      <h1>
-        Dünyayı keşfetmenin
-        <span>yeni yolu.</span>
-      </h1>
-
-      <p>
-        Otel, tur, transfer ve VIP seyahat deneyimlerini
-        tek bir platform üzerinden planla.
-      </p>
+    <p>
+      Otel, tur, transfer ve VIP seyahat deneyimlerini
+      tek bir platform üzerinden planla.
+    </p>
 
 
-      <div class="searchBox">
+    <div class="search-box">
+
+      <div class="field">
+
+        <label>Nereye gitmek istiyorsun?</label>
 
         <input
-          id="destination"
-          placeholder="Nereye gitmek istiyorsun?"
-        >
+          id="destinationInput"
+          type="text"
+          placeholder="Dubai, İstanbul, Paris...">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Giriş</label>
 
         <input
           id="checkin"
-          type="date"
-        >
+          type="date">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Çıkış</label>
 
         <input
           id="checkout"
-          type="date"
-        >
+          type="date">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Misafir</label>
 
         <select id="guests">
 
-          <option value="1">
-            1 misafir
-          </option>
-
-          <option value="2" selected>
-            2 misafir
-          </option>
-
-          <option value="3">
-            3 misafir
-          </option>
-
-          <option value="4">
-            4 misafir
-          </option>
-
-          <option value="5">
-            5 misafir
-          </option>
-
-          <option value="6">
-            6 misafir
-          </option>
+          <option value="1">1 misafir</option>
+          <option value="2" selected>2 misafir</option>
+          <option value="3">3 misafir</option>
+          <option value="4">4 misafir</option>
+          <option value="5">5 misafir</option>
+          <option value="6">6 misafir</option>
+          <option value="7">7 misafir</option>
+          <option value="8">8 misafir</option>
+          <option value="9">9 misafir</option>
+          <option value="10">10 misafir</option>
 
         </select>
 
-        <button
-          class="searchBtn"
-          onclick="searchTravel()"
-        >
-          Ara
-        </button>
-
       </div>
+
+
+      <button
+        class="search-btn"
+        id="searchBtn"
+        type="button">
+
+        Ara
+
+      </button>
 
     </div>
 
@@ -1125,71 +968,24 @@ footer{
 
 <!-- RESULTS -->
 
-<section id="results">
+<section
+  class="results-section"
+  id="resultsSection">
 
   <div class="container">
 
-    <h2 class="sectionTitle">
-      Seyahat seçenekleri
+    <h2 class="section-title">
+      Arama sonuçları
     </h2>
 
     <p
-      id="resultText"
-      class="sectionText"
-    ></p>
+      class="section-text"
+      id="resultSummary">
+    </p>
 
-    <div class="resultGrid">
-
-      <div class="resultCard">
-
-        <h3>🏨 Otel</h3>
-
-        <p>
-          Konaklama seçeneklerini keşfet.
-        </p>
-
-        <button
-          onclick="booking('Otel')"
-        >
-          Otel Planla
-        </button>
-
-      </div>
-
-
-      <div class="resultCard">
-
-        <h3>🗺️ Tur</h3>
-
-        <p>
-          Özel tur ve deneyimlerini planla.
-        </p>
-
-        <button
-          onclick="booking('Tur')"
-        >
-          Tur Planla
-        </button>
-
-      </div>
-
-
-      <div class="resultCard">
-
-        <h3>🚘 Transfer</h3>
-
-        <p>
-          Havalimanı ve özel transfer talep et.
-        </p>
-
-        <button
-          onclick="booking('Transfer')"
-        >
-          Transfer Planla
-        </button>
-
-      </div>
-
+    <div
+      class="results"
+      id="results">
     </div>
 
   </div>
@@ -1203,22 +999,21 @@ footer{
 
   <div class="container">
 
-    <h2 class="sectionTitle">
+    <h2 class="section-title">
       Hizmetlerimiz
     </h2>
 
-    <p class="sectionText">
+    <p class="section-text">
       Seyahatinizin farklı aşamalarını tek noktadan yönetin.
     </p>
 
-    <div class="serviceGrid">
 
-      <div
-        class="service"
-        onclick="booking('Otel')"
-      >
+    <div class="services">
 
-        <div class="serviceIcon">🏨</div>
+
+      <div class="service-card">
+
+        <div class="service-icon">🏨</div>
 
         <h3>Oteller</h3>
 
@@ -1226,15 +1021,21 @@ footer{
           Konaklama planınızı oluşturun.
         </p>
 
+        <button
+          class="card-btn serviceBtn"
+          data-service="Otel"
+          type="button">
+
+          Otel Planla →
+
+        </button>
+
       </div>
 
 
-      <div
-        class="service"
-        onclick="booking('Tur')"
-      >
+      <div class="service-card">
 
-        <div class="serviceIcon">🗺️</div>
+        <div class="service-icon">🗺️</div>
 
         <h3>Turlar</h3>
 
@@ -1242,15 +1043,21 @@ footer{
           Şehir ve destinasyon deneyimleri.
         </p>
 
+        <button
+          class="card-btn serviceBtn"
+          data-service="Tur"
+          type="button">
+
+          Tur Planla →
+
+        </button>
+
       </div>
 
 
-      <div
-        class="service"
-        onclick="booking('Transfer')"
-      >
+      <div class="service-card">
 
-        <div class="serviceIcon">🚘</div>
+        <div class="service-icon">🚘</div>
 
         <h3>Transfer</h3>
 
@@ -1258,21 +1065,36 @@ footer{
           Havalimanı ve özel araç hizmetleri.
         </p>
 
+        <button
+          class="card-btn serviceBtn"
+          data-service="Transfer"
+          type="button">
+
+          Transfer Planla →
+
+        </button>
+
       </div>
 
 
-      <div
-        class="service"
-        onclick="booking('VIP')"
-      >
+      <div class="service-card">
 
-        <div class="serviceIcon">✦</div>
+        <div class="service-icon">✦</div>
 
         <h3>VIP</h3>
 
         <p>
           Size özel seyahat çözümleri.
         </p>
+
+        <button
+          class="card-btn serviceBtn"
+          data-service="VIP"
+          type="button">
+
+          VIP Planla →
+
+        </button>
 
       </div>
 
@@ -1289,25 +1111,32 @@ footer{
 
   <div class="container">
 
-    <h2 class="sectionTitle">
+    <h2 class="section-title">
       Popüler destinasyonlar
     </h2>
 
-    <p class="sectionText">
+    <p class="section-text">
       Bir sonraki seyahatin için ilham al.
     </p>
 
 
-    <div class="destinationGrid">
+    <div class="destinations">
+
 
       <div
         class="destination"
-        style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80')"
-      >
+        data-destination="İstanbul">
 
-        <div class="destinationInfo">
+        <img
+          src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"
+          alt="İstanbul">
+
+        <div class="destination-info">
+
           <h3>İstanbul</h3>
-          <p>Türkiye</p>
+
+          <small>Türkiye</small>
+
         </div>
 
       </div>
@@ -1315,12 +1144,18 @@ footer{
 
       <div
         class="destination"
-        style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80')"
-      >
+        data-destination="Dubai">
 
-        <div class="destinationInfo">
+        <img
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80"
+          alt="Dubai">
+
+        <div class="destination-info">
+
           <h3>Dubai</h3>
-          <p>Birleşik Arap Emirlikleri</p>
+
+          <small>Birleşik Arap Emirlikleri</small>
+
         </div>
 
       </div>
@@ -1328,12 +1163,18 @@ footer{
 
       <div
         class="destination"
-        style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80')"
-      >
+        data-destination="Paris">
 
-        <div class="destinationInfo">
+        <img
+          src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80"
+          alt="Paris">
+
+        <div class="destination-info">
+
           <h3>Paris</h3>
-          <p>Fransa</p>
+
+          <small>Fransa</small>
+
         </div>
 
       </div>
@@ -1341,12 +1182,18 @@ footer{
 
       <div
         class="destination"
-        style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')"
-      >
+        data-destination="Maldivler">
 
-        <div class="destinationInfo">
+        <img
+          src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80"
+          alt="Maldivler">
+
+        <div class="destination-info">
+
           <h3>Maldivler</h3>
-          <p>Hint Okyanusu</p>
+
+          <small>Hint Okyanusu</small>
+
         </div>
 
       </div>
@@ -1364,51 +1211,76 @@ footer{
 
   <div class="container">
 
-    <h2 class="sectionTitle">
+    <h2 class="section-title">
       Öne çıkan deneyimler
     </h2>
 
-    <p class="sectionText">
+    <p class="section-text">
       Seyahatinizi sıradan bir tatilden daha fazlasına dönüştürün.
     </p>
 
 
-    <div class="experienceGrid">
+    <div class="experiences">
+
 
       <div class="experience">
 
-        <h3>İstanbul Weekend</h3>
+        <img
+          src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1000&q=80"
+          alt="İstanbul">
 
-        <p>
-          Şehrin kültürünü, gastronomisini ve
-          gece hayatını keşfetmeye yönelik özel plan.
-        </p>
+        <div class="experience-content">
+
+          <h3>İstanbul Weekend</h3>
+
+          <p>
+            Şehrin kültürünü, gastronomisini ve gece hayatını
+            keşfetmeye yönelik özel plan.
+          </p>
+
+        </div>
 
       </div>
 
 
       <div class="experience">
 
-        <h3>Dubai Experience</h3>
+        <img
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80"
+          alt="Dubai">
 
-        <p>
-          Modern şehir hayatı, lüks konaklama
-          ve özel deneyimler.
-        </p>
+        <div class="experience-content">
+
+          <h3>Dubai Experience</h3>
+
+          <p>
+            Modern şehir hayatı, lüks konaklama ve özel deneyimler.
+          </p>
+
+        </div>
 
       </div>
 
 
       <div class="experience">
 
-        <h3>Maldivler Escape</h3>
+        <img
+          src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1000&q=80"
+          alt="Maldivler">
 
-        <p>
-          Sakinlik, deniz ve özel konaklama
-          deneyimini bir araya getiren seyahat.
-        </p>
+        <div class="experience-content">
+
+          <h3>Maldivler Escape</h3>
+
+          <p>
+            Sakinlik, deniz ve özel konaklama deneyimini
+            bir araya getiren seyahat.
+          </p>
+
+        </div>
 
       </div>
+
 
     </div>
 
@@ -1419,9 +1291,41 @@ footer{
 
 <!-- WHY -->
 
-<section
-  id="why"
-  class="why"
->
+<section>
 
-  <d
+  <div class="container">
+
+    <h2 class="section-title">
+      Neden NOVAERA?
+    </h2>
+
+    <p class="section-text">
+      Seyahat planlamasını daha kolay ve daha modern hale getirmek için.
+    </p>
+
+
+    <div class="why">
+
+      <div class="why-card">
+
+        <strong>Tek platform</strong>
+
+        <span>
+          Otel, tur, transfer ve VIP hizmetlerini tek yerde planlayın.
+        </span>
+
+      </div>
+
+
+      <div class="why-card">
+
+        <strong>Modern deneyim</strong>
+
+        <span>
+          Mobil uyumlu ve sade bir seyahat deneyimi.
+        </span>
+
+      </div>
+
+
+      <div class="why-car

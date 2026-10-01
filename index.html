@@ -3,844 +3,1425 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NOVAERA | Seyahat Platformu</title>
+<title>NOVAERA — Dünyayı keşfetmenin yeni yolu</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#07101d;color:#fff}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-.container{width:min(1150px,92%);margin:auto}
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07101c;
+  color:#fff;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* HEADER */
 
 header{
-position:fixed;top:0;left:0;right:0;z-index:1000;
-height:70px;background:rgba(5,12,23,.94);
-border-bottom:1px solid #263246
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(7,16,28,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
-height:70px;display:flex;align-items:center;
-justify-content:space-between
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.logo{font-size:21px;font-weight:bold;letter-spacing:2px}
-.logo b{
-display:inline-grid;place-items:center;
-width:34px;height:34px;margin-right:8px;
-border-radius:10px;background:#fff;color:#07101d
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:3px;
 }
 
-.menu-btn{
-width:45px;height:45px;border:1px solid #344157;
-background:#111d30;color:#fff;border-radius:10px;
-font-size:22px
+.logo span{
+  color:#59a9ff;
 }
 
-.menu{
-display:none;position:absolute;right:4%;
-top:65px;width:230px;padding:10px;
-background:#101c2e;border:1px solid #344157;
-border-radius:15px
+.navLinks{
+  display:flex;
+  gap:25px;
 }
-.menu.show{display:block}
-.menu button{
-display:block;width:100%;padding:13px;
-border:0;background:transparent;color:#fff;
-text-align:left;border-radius:8px
+
+.navLinks a{
+  color:#b8c5d8;
+  font-size:14px;
 }
-.menu button:hover{background:#1c2b43}
+
+.navLinks a:hover{
+  color:#fff;
+}
+
+.menuBtn{
+  display:none;
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:27px;
+}
+
+/* HERO */
 
 .hero{
-min-height:750px;padding-top:150px;
-display:flex;align-items:center;
-background:
-linear-gradient(90deg,rgba(3,8,17,.94),rgba(3,8,17,.55)),
-url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=80")
-center/cover
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(4,10,18,.95),rgba(4,10,18,.45)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
 }
 
-.badge{color:#9eb2ff;font-weight:bold;margin-bottom:20px}
-h1{font-size:clamp(48px,8vw,90px);line-height:.95;margin-bottom:25px}
-.hero p{max-width:680px;color:#c5cfdd;font-size:18px;margin-bottom:30px}
-
-.search{
-background:#fff;color:#111;border-radius:18px;
-padding:10px;display:grid;
-grid-template-columns:1.5fr 1fr 1fr .7fr 100px;
-gap:8px
+.heroContent{
+  max-width:720px;
 }
 
-.field{padding:10px}
-.field label{display:block;font-size:11px;color:#777;font-weight:bold;margin-bottom:5px}
-.field input{
-width:100%;border:0;outline:0;background:transparent;color:#111
+.badge{
+  display:inline-block;
+  padding:8px 13px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:30px;
+  background:rgba(255,255,255,.06);
+  color:#a9cfff;
+  margin-bottom:18px;
+  font-size:13px;
 }
 
-.search button,.primary{
-border:0;border-radius:12px;
-background:#111827;color:#fff;font-weight:bold;
-padding:12px 18px
+.hero h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:.98;
+  margin-bottom:22px;
 }
 
-section{padding:85px 0}
-.heading{margin-bottom:35px}
-.heading small{color:#9eb2ff;font-weight:bold}
-.heading h2{font-size:45px;margin:8px 0}
-.heading p{color:#93a0b3;max-width:650px}
-
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-
-.card{
-background:#0d192a;border:1px solid #253247;
-border-radius:20px;padding:25px;
-transition:.2s
-}
-.card:hover{transform:translateY(-5px);border-color:#667fff}
-.icon{font-size:35px;margin-bottom:15px}
-.card p{color:#94a1b3;font-size:14px;margin:10px 0 18px}
-.card button{
-padding:10px 14px;border:1px solid #39475c;
-border-radius:9px;background:#17243a;color:#fff
+.hero h1 span{
+  color:#62afff;
 }
 
-.dest{
-height:290px;border-radius:20px;
-position:relative;overflow:hidden;
-background-size:cover;background-position:center;
-cursor:pointer
+.hero p{
+  color:#c0ccdc;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:30px;
 }
-.dest:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(transparent,rgba(0,0,0,.9))
-}
-.dest div{position:absolute;z-index:2;bottom:20px;left:20px}
-.dest small{color:#ccd5e2}
-.dest h3{font-size:26px}
 
-.exp{
-overflow:hidden;background:#0d192a;
-border:1px solid #253247;border-radius:20px
+/* SEARCH */
+
+.searchBox{
+  background:rgba(10,20,34,.92);
+  border:1px solid rgba(255,255,255,.14);
+  padding:15px;
+  border-radius:18px;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr .8fr auto;
+  gap:10px;
 }
-.exp-img{height:210px;background-size:cover;background-position:center}
-.exp-body{padding:22px}
-.exp-body p{color:#94a1b3;margin:8px 0 18px}
+
+.searchBox input,
+.searchBox select{
+  min-width:0;
+  border:1px solid #2a3b53;
+  background:#0a1422;
+  color:#fff;
+  padding:14px;
+  border-radius:11px;
+  outline:none;
+}
+
+.searchBtn{
+  border:0;
+  background:#4d9cff;
+  color:#fff;
+  border-radius:11px;
+  padding:0 22px;
+  font-weight:800;
+}
+
+/* SECTIONS */
+
+section{
+  padding:85px 0;
+}
+
+.sectionTitle{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.sectionText{
+  color:#8fa0b7;
+  margin-bottom:30px;
+}
+
+/* RESULTS */
+
+#results{
+  display:none;
+  background:#0a1422;
+}
+
+#results.show{
+  display:block;
+}
+
+.resultGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.resultCard{
+  background:#101d2d;
+  border:1px solid #22334b;
+  border-radius:18px;
+  padding:22px;
+}
+
+.resultCard h3{
+  margin-bottom:8px;
+}
+
+.resultCard p{
+  color:#91a1b7;
+  margin-bottom:18px;
+}
+
+.resultCard button{
+  border:0;
+  padding:10px 15px;
+  border-radius:9px;
+  background:#4d9cff;
+  color:#fff;
+}
+
+/* SERVICES */
+
+.serviceGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.service{
+  padding:25px;
+  min-height:180px;
+  background:#0d1929;
+  border:1px solid #21334a;
+  border-radius:18px;
+  transition:.2s;
+}
+
+.service:hover{
+  transform:translateY(-4px);
+  border-color:#4d9cff;
+}
+
+.serviceIcon{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.service h3{
+  margin-bottom:9px;
+}
+
+.service p{
+  color:#8495ab;
+  line-height:1.5;
+}
+
+/* DESTINATIONS */
+
+.destinationGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.destination{
+  height:260px;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+}
+
+.destination:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.destinationInfo{
+  position:absolute;
+  z-index:2;
+  bottom:20px;
+  left:20px;
+}
+
+.destinationInfo p{
+  color:#b9c5d5;
+  margin-top:5px;
+}
+
+/* EXPERIENCES */
+
+.experienceGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.experience{
+  background:#0d1929;
+  border:1px solid #21334a;
+  border-radius:18px;
+  padding:25px;
+}
+
+.experience h3{
+  margin-bottom:10px;
+}
+
+.experience p{
+  color:#8999af;
+  line-height:1.6;
+}
+
+/* WHY */
+
+.why{
+  background:#091421;
+}
+
+.whyGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.whyCard{
+  padding:25px;
+  border:1px solid #21334a;
+  border-radius:18px;
+  background:#0d1928;
+}
+
+.whyCard h3{
+  margin-bottom:10px;
+}
+
+.whyCard p{
+  color:#8999af;
+  line-height:1.6;
+}
+
+/* CTA */
 
 .cta{
-text-align:center;padding:70px 25px;
-border-radius:25px;background:#101e32;
-border:1px solid #29374c
+  padding:80px 20px;
+  text-align:center;
+  background:
+    linear-gradient(90deg,rgba(25,76,130,.8),rgba(9,22,38,.9)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80")
+    center/cover;
 }
-.cta h2{font-size:45px;margin-bottom:12px}
-.cta p{color:#94a1b3;margin-bottom:25px}
+
+.cta h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.cta p{
+  color:#d1dbea;
+  margin-bottom:25px;
+}
+
+.cta button{
+  border:0;
+  padding:14px 25px;
+  border-radius:11px;
+  background:#fff;
+  color:#07101c;
+  font-weight:800;
+}
+
+/* FOOTER */
 
 footer{
-padding:55px 0 30px;background:#040a12;
-border-top:1px solid #202c3d
+  padding:35px 0;
+  background:#040911;
+  border-top:1px solid #172438;
 }
-.footer-grid{
-display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px
-}
-footer h4{margin-bottom:14px}
-footer a,footer p{display:block;color:#8290a4;margin:8px 0;font-size:14px}
-.copy{border-top:1px solid #1c2838;margin-top:35px;padding-top:20px;color:#687589;font-size:13px}
 
-.results{display:none}
-.results.show{display:block}
-.result-box{
-background:#0d192a;border:1px solid #29374c;
-border-radius:20px;padding:25px
+.footerInner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#73849b;
+  font-size:13px;
 }
+
+/* MODAL */
 
 .modal{
-display:none;position:fixed;inset:0;z-index:3000;
-background:rgba(0,0,0,.8);
-align-items:center;justify-content:center;padding:15px
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
 }
-.modal.show{display:flex}
-.modal-box{
-width:min(600px,100%);max-height:90vh;overflow:auto;
-background:#101c2e;border:1px solid #344157;
-border-radius:20px;padding:25px;position:relative
+
+.modal.show{
+  display:flex;
 }
+
+.modalBox{
+  width:100%;
+  max-width:550px;
+  max-height:90vh;
+  overflow:auto;
+  background:#101b2b;
+  border:1px solid #30435e;
+  border-radius:20px;
+  padding:25px;
+}
+
+.modalHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+
 .close{
-position:absolute;right:15px;top:15px;
-background:#243148;color:#fff;border:0;
-width:38px;height:38px;border-radius:9px;font-size:20px
-}
-.form{margin-top:25px}
-.form label{display:block;font-size:13px;color:#aeb8c7;margin:13px 0 6px}
-.form input,.form textarea{
-width:100%;padding:12px;border-radius:9px;
-border:1px solid #344157;background:#081321;color:#fff
-}
-.form textarea{min-height:100px}
-.form button{width:100%;margin-top:18px;padding:14px}
-
-.toast{
-position:fixed;z-index:5000;bottom:20px;right:20px;
-background:#16253b;border:1px solid #41516a;
-padding:15px 18px;border-radius:12px;
-transform:translateY(100px);opacity:0;transition:.25s
-}
-.toast.show{transform:translateY(0);opacity:1}
-
-.firebase{
-position:fixed;left:8px;bottom:8px;z-index:4000;
-font-size:10px;color:#72e0a0;background:#000b;padding:5px 8px;
-border-radius:6px
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:9px;
+  background:#1c2a3d;
+  color:#fff;
+  font-size:21px;
 }
 
-@media(max-width:850px){
-.search{grid-template-columns:1fr}
-.search button{height:50px}
-.grid4{grid-template-columns:repeat(2,1fr)}
-.grid3{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr 1fr}
+.formGroup{
+  margin-bottom:14px;
 }
 
-@media(max-width:520px){
-.grid4{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr}
-.hero{min-height:850px}
-section{padding:65px 0}
-.heading h2,.cta h2{font-size:34px}
+.formGroup label{
+  display:block;
+  color:#9cacbf;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.formGroup input,
+.formGroup textarea{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #30415a;
+  background:#09121f;
+  color:#fff;
+  outline:none;
+}
+
+.formGroup textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.submitBtn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#4d9cff;
+  color:#fff;
+  font-weight:800;
+}
+
+/* TOAST */
+
+#toast{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:300;
+  display:none;
+  max-width:360px;
+  padding:14px 18px;
+  border-radius:12px;
+  background:#17263a;
+  border:1px solid #405674;
+}
+
+#toast.show{
+  display:block;
+}
+
+/* ADMIN LOGIN */
+
+#adminArea{
+  display:none;
+}
+
+#adminArea.show{
+  display:block;
+}
+
+.adminLogin{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top,#1a3153,#050a11 65%);
+}
+
+.adminLoginBox{
+  width:100%;
+  max-width:430px;
+  padding:32px;
+  border-radius:22px;
+  background:#101a29;
+  border:1px solid #30435c;
+  box-shadow:0 25px 80px rgba(0,0,0,.5);
+}
+
+.adminLogo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:3px;
+  margin-bottom:5px;
+}
+
+.adminLogo span{
+  color:#59a9ff;
+}
+
+.adminSubtitle{
+  color:#8191a8;
+  margin-bottom:25px;
+}
+
+.adminInput{
+  width:100%;
+  padding:14px;
+  margin-bottom:13px;
+  border-radius:10px;
+  border:1px solid #30415b;
+  background:#080f1a;
+  color:#fff;
+  outline:none;
+}
+
+.adminLoginBtn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#4d9cff;
+  color:#fff;
+  font-weight:800;
+}
+
+.adminError{
+  color:#ff8585;
+  margin-top:12px;
+  font-size:13px;
+}
+
+/* ADMIN */
+
+.adminTop{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  background:#0b1421;
+  border-bottom:1px solid #1d2c40;
+}
+
+.adminBrand{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.adminBrand span{
+  color:#59a9ff;
+}
+
+.adminTopRight{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.adminUser{
+  color:#8292a8;
+  font-size:13px;
+}
+
+.adminLogout{
+  padding:9px 13px;
+  border:1px solid #354860;
+  background:#121f31;
+  color:#fff;
+  border-radius:9px;
+}
+
+.adminLayout{
+  min-height:calc(100vh - 70px);
+  display:flex;
+}
+
+.adminSidebar{
+  width:230px;
+  flex-shrink:0;
+  padding:18px 13px;
+  background:#080f19;
+  border-right:1px solid #1b293c;
+}
+
+.adminMenuTitle{
+  color:#63738a;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+  padding:10px;
+}
+
+.adminSideBtn{
+  width:100%;
+  text-align:left;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#aebbd0;
+  margin-bottom:3px;
+}
+
+.adminSideBtn:hover,
+.adminSideBtn.active{
+  background:#142238;
+  color:#fff;
+}
+
+.adminMain{
+  flex:1;
+  padding:28px;
+  min-width:0;
+}
+
+.adminSection{
+  display:none;
+}
+
+.adminSection.active{
+  display:block;
+}
+
+.adminTitle{
+  font-size:30px;
+  margin-bottom:7px;
+}
+
+.adminSubtitle{
+  color:#8191a8;
+  margin-bottom:24px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.stat{
+  padding:20px;
+  background:#101a29;
+  border:1px solid #21334a;
+  border-radius:16px;
+}
+
+.statLabel{
+  color:#7e8fa7;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.statValue{
+  font-size:30px;
+  font-weight:900;
+}
+
+.adminPanel{
+  background:#101a29;
+  border:1px solid #21334a;
+  border-radius:17px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.adminPanelHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:18px;
+  border-bottom:1px solid #21334a;
+}
+
+.adminPanelTitle{
+  font-weight:800;
+  font-size:18px;
+}
+
+.adminSearch{
+  max-width:320px;
+  width:100%;
+  padding:10px 12px;
+  border-radius:9px;
+  border:1px solid #30415a;
+  background:#080f1a;
+  color:#fff;
+}
+
+.tableWrap{
+  overflow-x:auto;
+}
+
+.adminTable{
+  width:100%;
+  min-width:800px;
+  border-collapse:collapse;
+}
+
+.adminTable th,
+.adminTable td{
+  padding:13px 15px;
+  text-align:left;
+  border-bottom:1px solid #1d2b3e;
+  font-size:13px;
+}
+
+.adminTable th{
+  color:#718198;
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+.adminTable td{
+  color:#d7e0ed;
+}
+
+.adminAction{
+  border:1px solid #334861;
+  background:#142237;
+  color:#fff;
+  padding:7px 10px;
+  border-radius:8px;
+}
+
+.status{
+  display:inline-flex;
+  padding:6px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.status-yeni{
+  background:#173653;
+  color:#65b1ff;
+}
+
+.status-inceleniyor{
+  background:#463717;
+  color:#ffd15e;
+}
+
+.status-onaylandi{
+  background:#163b29;
+  color:#61e49b;
+}
+
+.status-iptal{
+  background:#461f26;
+  color:#ff8993;
+}
+
+.placeholder{
+  text-align:center;
+  padding:55px 20px;
+  color:#7f90a7;
+}
+
+.placeholderIcon{
+  font-size:44px;
+  margin-bottom:12px;
+}
+
+/* ADMIN MODAL */
+
+.adminModal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
+}
+
+.adminModal.show{
+  display:flex;
+}
+
+.adminModalBox{
+  width:100%;
+  max-width:650px;
+  max-height:90vh;
+  overflow:auto;
+  padding:24px;
+  border-radius:19px;
+  background:#101a29;
+  border:1px solid #344962;
+}
+
+.detailGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+
+.detail{
+  padding:13px;
+  border-radius:11px;
+  background:#080f1a;
+  border:1px solid #1d2b3e;
+}
+
+.detail.full{
+  grid-column:1/-1;
+}
+
+.detailLabel{
+  color:#6f8097;
+  font-size:11px;
+  margin-bottom:5px;
+}
+
+.detailValue{
+  word-break:break-word;
+}
+
+.statusControls{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.statusControls select{
+  flex:1;
+  padding:12px;
+  border-radius:9px;
+  border:1px solid #30415a;
+  background:#080f1a;
+  color:#fff;
+}
+
+.saveStatus{
+  padding:12px 18px;
+  border:0;
+  border-radius:9px;
+  background:#4d9cff;
+  color:#fff;
+  font-weight:800;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .searchBox{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .searchBtn{
+    padding:14px;
+  }
+
+  .serviceGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .destinationGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .adminSidebar{
+    width:190px;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .navLinks{
+    display:none;
+  }
+
+  .menuBtn{
+    display:block;
+  }
+
+  .searchBox{
+    grid-template-columns:1fr;
+  }
+
+  .resultGrid,
+  .experienceGrid,
+  .whyGrid{
+    grid-template-columns:1fr;
+  }
+
+  .serviceGrid,
+  .destinationGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero{
+    min-height:700px;
+  }
+
+  .hero h1{
+    font-size:47px;
+  }
+
+  section{
+    padding:60px 0;
+  }
+
+  .footerInner{
+    flex-direction:column;
+  }
+
+  .adminLayout{
+    display:block;
+  }
+
+  .adminSidebar{
+    width:100%;
+    display:flex;
+    overflow-x:auto;
+    padding:9px;
+    border-right:0;
+    border-bottom:1px solid #1d2b3e;
+  }
+
+  .adminMenuTitle{
+    display:none;
+  }
+
+  .adminSideBtn{
+    width:auto;
+    white-space:nowrap;
+    margin:0 3px;
+  }
+
+  .adminMain{
+    padding:18px 12px;
+  }
+
+  .adminTop{
+    padding:0 13px;
+  }
+
+  .adminUser{
+    display:none;
+  }
+
+  .detailGrid{
+    grid-template-columns:1fr;
+  }
+
+  .detail.full{
+    grid-column:auto;
+  }
+
+  .statusControls{
+    flex-direction:column;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- =====================================================
+     NORMAL NOVAERA SITE
+===================================================== -->
+
+<div id="normalSite">
+
 <header>
-<div class="container nav">
 
-<a class="logo" href="#home">
-<b>N</b>NOVAERA
-</a>
+  <div class="container nav">
 
-<button class="menu-btn" onclick="menuToggle()">☰</button>
+    <div class="logo">
+      NOVA<span>ERA</span>
+    </div>
 
-<div id="menu" class="menu">
-<button onclick="go('home')">Ana Sayfa</button>
-<button onclick="go('services')">Hizmetler</button>
-<button onclick="go('destinations')">Destinasyonlar</button>
-<button onclick="go('experiences')">Deneyimler</button>
-<button onclick="go('why')">Neden NOVAERA?</button>
-<button onclick="booking('Genel Seyahat Talebi')">Seyahat Planla</button>
-<button onclick="go('contact')">İletişim</button>
-</div>
+    <nav class="navLinks">
 
-</div>
+      <a href="#services">Hizmetler</a>
+      <a href="#destinations">Destinasyonlar</a>
+      <a href="#experiences">Deneyimler</a>
+      <a href="#why">Neden NOVAERA</a>
+
+    </nav>
+
+    <button
+      class="menuBtn"
+      onclick="toggleMobileMenu()"
+    >
+      ☰
+    </button>
+
+  </div>
+
 </header>
 
 
-<main>
+<section class="hero">
 
-<section class="hero" id="home">
-<div class="container">
+  <div class="container">
 
-<div class="badge">✦ YENİ NESİL SEYAHAT PLATFORMU</div>
+    <div class="heroContent">
 
-<h1>Dünyayı<br>keşfetmenin<br>yeni yolu.</h1>
+      <div class="badge">
+        Yeni nesil seyahat deneyimi
+      </div>
 
-<p>
-Otellerden özel turlara, havalimanı transferlerinden
-VIP seyahat deneyimlerine kadar yolculuğunuzu
-tek noktadan planlayın.
-</p>
+      <h1>
+        Dünyayı keşfetmenin
+        <span>yeni yolu.</span>
+      </h1>
 
-<div class="search">
+      <p>
+        Otel, tur, transfer ve VIP seyahat deneyimlerini
+        tek bir platform üzerinden planla.
+      </p>
 
-<div class="field">
-<label>Nereye?</label>
-<input id="destination" placeholder="Şehir veya ülke">
-</div>
 
-<div class="field">
-<label>Giriş</label>
-<input id="checkin" type="date">
-</div>
+      <div class="searchBox">
 
-<div class="field">
-<label>Çıkış</label>
-<input id="checkout" type="date">
-</div>
+        <input
+          id="destination"
+          placeholder="Nereye gitmek istiyorsun?"
+        >
 
-<div class="field">
-<label>Misafir</label>
-<input id="guests" type="number" min="1" value="2">
-</div>
+        <input
+          id="checkin"
+          type="date"
+        >
 
-<button onclick="search()">Ara</button>
+        <input
+          id="checkout"
+          type="date"
+        >
 
-</div>
-</div>
+        <select id="guests">
+
+          <option value="1">
+            1 misafir
+          </option>
+
+          <option value="2" selected>
+            2 misafir
+          </option>
+
+          <option value="3">
+            3 misafir
+          </option>
+
+          <option value="4">
+            4 misafir
+          </option>
+
+          <option value="5">
+            5 misafir
+          </option>
+
+          <option value="6">
+            6 misafir
+          </option>
+
+        </select>
+
+        <button
+          class="searchBtn"
+          onclick="searchTravel()"
+        >
+          Ara
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
-<section id="results" class="results">
-<div class="container">
-<div class="result-box">
+<!-- RESULTS -->
 
-<h2 id="resultText">Sonuçlar</h2>
+<section id="results">
 
-<br>
+  <div class="container">
 
-<div class="grid3">
+    <h2 class="sectionTitle">
+      Seyahat seçenekleri
+    </h2>
 
-<div class="card">
-<div class="icon">🏨</div>
-<h3>Otel</h3>
-<p>Konaklama seçenekleri için talep oluşturun.</p>
-<button onclick="booking('Otel Rezervasyonu')">Rezervasyon</button>
-</div>
+    <p
+      id="resultText"
+      class="sectionText"
+    ></p>
 
-<div class="card">
-<div class="icon">🌍</div>
-<h3>Tur</h3>
-<p>Yurt içi ve yurt dışı tur talebinizi oluşturun.</p>
-<button onclick="booking('Tur Talebi')">Talep Al</button>
-</div>
+    <div class="resultGrid">
 
-<div class="card">
-<div class="icon">🚘</div>
-<h3>Transfer</h3>
-<p>Havalimanı veya özel transfer talebi oluşturun.</p>
-<button onclick="booking('Transfer Talebi')">Talep Al</button>
-</div>
+      <div class="resultCard">
 
-</div>
-</div>
-</div>
+        <h3>🏨 Otel</h3>
+
+        <p>
+          Konaklama seçeneklerini keşfet.
+        </p>
+
+        <button
+          onclick="booking('Otel')"
+        >
+          Otel Planla
+        </button>
+
+      </div>
+
+
+      <div class="resultCard">
+
+        <h3>🗺️ Tur</h3>
+
+        <p>
+          Özel tur ve deneyimlerini planla.
+        </p>
+
+        <button
+          onclick="booking('Tur')"
+        >
+          Tur Planla
+        </button>
+
+      </div>
+
+
+      <div class="resultCard">
+
+        <h3>🚘 Transfer</h3>
+
+        <p>
+          Havalimanı ve özel transfer talep et.
+        </p>
+
+        <button
+          onclick="booking('Transfer')"
+        >
+          Transfer Planla
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- SERVICES -->
 
 <section id="services">
-<div class="container">
 
-<div class="heading">
-<small>HİZMETLER</small>
-<h2>Her yolculuk için<br>tek platform.</h2>
-<p>NOVAERA ile konaklama, tur, transfer ve özel seyahat hizmetlerini tek noktadan planlayabilirsiniz.</p>
-</div>
+  <div class="container">
 
-<div class="grid4">
+    <h2 class="sectionTitle">
+      Hizmetlerimiz
+    </h2>
 
-<div class="card">
-<div class="icon">🏨</div>
-<h3>Oteller</h3>
-<p>Şehir otellerinden lüks resortlara kadar konaklama seçenekleri.</p>
-<button onclick="booking('Otel Rezervasyonu')">Otel Planla →</button>
-</div>
+    <p class="sectionText">
+      Seyahatinizin farklı aşamalarını tek noktadan yönetin.
+    </p>
 
-<div class="card">
-<div class="icon">🌍</div>
-<h3>Turlar</h3>
-<p>Yurt içi ve yurt dışı keşif deneyimleri.</p>
-<button onclick="booking('Tur Talebi')">Tur Planla →</button>
-</div>
+    <div class="serviceGrid">
 
-<div class="card">
-<div class="icon">🚘</div>
-<h3>Transfer</h3>
-<p>Havalimanı ve şehirler arası transfer hizmetleri.</p>
-<button onclick="booking('Transfer Talebi')">Transfer Planla →</button>
-</div>
+      <div
+        class="service"
+        onclick="booking('Otel')"
+      >
 
-<div class="card">
-<div class="icon">✦</div>
-<h3>VIP Seyahat</h3>
-<p>Özel araç, özel transfer ve kişiselleştirilmiş seyahat planları.</p>
-<button onclick="booking('VIP Seyahat')">VIP Planla →</button>
-</div>
+        <div class="serviceIcon">🏨</div>
 
-</div>
-</div>
+        <h3>Oteller</h3>
+
+        <p>
+          Konaklama planınızı oluşturun.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="booking('Tur')"
+      >
+
+        <div class="serviceIcon">🗺️</div>
+
+        <h3>Turlar</h3>
+
+        <p>
+          Şehir ve destinasyon deneyimleri.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="booking('Transfer')"
+      >
+
+        <div class="serviceIcon">🚘</div>
+
+        <h3>Transfer</h3>
+
+        <p>
+          Havalimanı ve özel araç hizmetleri.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="booking('VIP')"
+      >
+
+        <div class="serviceIcon">✦</div>
+
+        <h3>VIP</h3>
+
+        <p>
+          Size özel seyahat çözümleri.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- DESTINATIONS -->
 
 <section id="destinations">
-<div class="container">
 
-<div class="heading">
-<small>DESTİNASYONLAR</small>
-<h2>Popüler destinasyonlar.</h2>
-<p>Dünyanın farklı noktalarında yeni deneyimler keşfedin.</p>
-</div>
+  <div class="container">
 
-<div class="grid4">
+    <h2 class="sectionTitle">
+      Popüler destinasyonlar
+    </h2>
 
-<div class="dest"
-style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80')"
-onclick="destination('İstanbul')">
-<div><small>Türkiye</small><h3>İstanbul</h3></div>
-</div>
+    <p class="sectionText">
+      Bir sonraki seyahatin için ilham al.
+    </p>
 
-<div class="dest"
-style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80')"
-onclick="destination('Dubai')">
-<div><small>Birleşik Arap Emirlikleri</small><h3>Dubai</h3></div>
-</div>
 
-<div class="dest"
-style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80')"
-onclick="destination('Paris')">
-<div><small>Fransa</small><h3>Paris</h3></div>
-</div>
+    <div class="destinationGrid">
 
-<div class="dest"
-style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80')"
-onclick="destination('Maldivler')">
-<div><small>Maldivler</small><h3>Maldivler</h3></div>
-</div>
+      <div
+        class="destination"
+        style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80')"
+      >
 
-</div>
-</div>
+        <div class="destinationInfo">
+          <h3>İstanbul</h3>
+          <p>Türkiye</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="destination"
+        style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80')"
+      >
+
+        <div class="destinationInfo">
+          <h3>Dubai</h3>
+          <p>Birleşik Arap Emirlikleri</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="destination"
+        style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80')"
+      >
+
+        <div class="destinationInfo">
+          <h3>Paris</h3>
+          <p>Fransa</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="destination"
+        style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')"
+      >
+
+        <div class="destinationInfo">
+          <h3>Maldivler</h3>
+          <p>Hint Okyanusu</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- EXPERIENCES -->
 
 <section id="experiences">
-<div class="container">
 
-<div class="heading">
-<small>ÖNE ÇIKAN DENEYİMLER</small>
-<h2>Özel seyahat fikirleri.</h2>
-<p>Yakında NOVAERA üzerinden sunulacak seyahat deneyimleri.</p>
-</div>
+  <div class="container">
 
-<div class="grid3">
+    <h2 class="sectionTitle">
+      Öne çıkan deneyimler
+    </h2>
 
-<div class="exp">
-<div class="exp-img"
-style="background-image:url('https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=900&q=80')"></div>
-<div class="exp-body">
-<h3>İstanbul Weekend</h3>
-<p>İstanbul'da kısa süreli şehir deneyimi.</p>
-<button class="primary" onclick="booking('İstanbul Weekend')">Talep Al</button>
-</div>
-</div>
+    <p class="sectionText">
+      Seyahatinizi sıradan bir tatilden daha fazlasına dönüştürün.
+    </p>
 
-<div class="exp">
-<div class="exp-img"
-style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80')"></div>
-<div class="exp-body">
-<h3>Dubai Experience</h3>
-<p>Dubai için kişiselleştirilmiş seyahat planı.</p>
-<button class="primary" onclick="booking('Dubai Experience')">Talep Al</button>
-</div>
-</div>
 
-<div class="exp">
-<div class="exp-img"
-style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')"></div>
-<div class="exp-body">
-<h3>Maldivler Escape</h3>
-<p>Özel tatil planlaması ve transfer seçenekleri.</p>
-<button class="primary" onclick="booking('Maldivler Escape')">Talep Al</button>
-</div>
-</div>
+    <div class="experienceGrid">
 
-</div>
-</div>
+      <div class="experience">
+
+        <h3>İstanbul Weekend</h3>
+
+        <p>
+          Şehrin kültürünü, gastronomisini ve
+          gece hayatını keşfetmeye yönelik özel plan.
+        </p>
+
+      </div>
+
+
+      <div class="experience">
+
+        <h3>Dubai Experience</h3>
+
+        <p>
+          Modern şehir hayatı, lüks konaklama
+          ve özel deneyimler.
+        </p>
+
+      </div>
+
+
+      <div class="experience">
+
+        <h3>Maldivler Escape</h3>
+
+        <p>
+          Sakinlik, deniz ve özel konaklama
+          deneyimini bir araya getiren seyahat.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
-<section id="why">
-<div class="container">
+<!-- WHY -->
 
-<div class="heading">
-<small>NEDEN NOVAERA?</small>
-<h2>Seyahati daha kolay hale getirin.</h2>
-<p>Modern ve kişiselleştirilebilir seyahat planlama deneyimi.</p>
-</div>
+<section
+  id="why"
+  class="why"
+>
 
-<div class="grid3">
-
-<div class="card">
-<div class="icon">⚡</div>
-<h3>Kolay Planlama</h3>
-<p>Seyahatinizin temel ihtiyaçlarını tek noktadan planlayın.</p>
-</div>
-
-<div class="card">
-<div class="icon">🔒</div>
-<h3>Güvenli Süreç</h3>
-<p>Rezervasyon taleplerinizi düzenli şekilde yönetin.</p>
-</div>
-
-<div class="card">
-<div class="icon">✦</div>
-<h3>Kişiselleştirme</h3>
-<p>Özel seyahat talepleriniz için planlama desteği.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<section>
-<div class="container">
-<div class="cta">
-
-<h2>Bir sonraki yolculuğunuzu planlayın.</h2>
-
-<p>
-Gideceğiniz yeri, tarihleri ve kişi sayısını belirleyin.
-NOVAERA üzerinden seyahat talebinizi oluşturun.
-</p>
-
-<button class="primary" onclick="booking('Genel Seyahat Talebi')">
-Seyahat Planla
-</button>
-
-</div>
-</div>
-</section>
-
-</main>
-
-
-<footer id="contact">
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-<div class="logo"><b>N</b>NOVAERA</div>
-<p>Dünyayı keşfetmenin yeni yolu.</p>
-<p>Otel, tur, transfer ve özel seyahat hizmetleri.</p>
-</div>
-
-<div>
-<h4>Keşfet</h4>
-<a href="#destinations">Destinasyonlar</a>
-<a href="#experiences">Deneyimler</a>
-<a href="#services">Hizmetler</a>
-</div>
-
-<div>
-<h4>Hizmetler</h4>
-<a href="#services">Otel</a>
-<a href="#services">Tur</a>
-<a href="#services">Transfer</a>
-<a href="#services">VIP Seyahat</a>
-</div>
-
-<div>
-<h4>İletişim</h4>
-<a href="mailto:info@novaera.com">info@novaera.com</a>
-<a href="tel:+905000000000">+90 500 000 00 00</a>
-</div>
-
-</div>
-
-<div class="copy">
-© 2026 NOVAERA. Tüm hakları saklıdır.
-</div>
-
-</div>
-</footer>
-
-
-<div id="modal" class="modal">
-
-<div class="modal-box">
-
-<button class="close" onclick="closeModal()">×</button>
-
-<h2 id="modalTitle">Seyahat Talebi</h2>
-
-<form id="form" class="form">
-
-<label>Ad Soyad</label>
-<input id="name" required>
-
-<label>E-posta</label>
-<input id="email" type="email" required>
-
-<label>Telefon</label>
-<input id="phone" required>
-
-<label>Misafir Sayısı</label>
-<input id="modalGuests" type="number" min="1" value="2" required>
-
-<label>Giriş</label>
-<input id="modalCheckin" type="date">
-
-<label>Çıkış</label>
-<input id="modalCheckout" type="date">
-
-<label>Notunuz</label>
-<textarea id="notes" placeholder="Özel talepleriniz..."></textarea>
-
-<button class="primary" type="submit">
-Talep Oluştur
-</button>
-
-</form>
-
-</div>
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-<div id="firebaseStatus" class="firebase">
-Firebase bağlantısı hazırlanıyor...
-</div>
-
-
-<script>
-let selectedService="Genel Seyahat Talebi";
-
-function menuToggle(){
-document.getElementById("menu").classList.toggle("show");
-}
-
-function go(id){
-document.getElementById("menu").classList.remove("show");
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-function notify(text){
-const t=document.getElementById("toast");
-t.textContent=text;
-t.classList.add("show");
-setTimeout(()=>t.classList.remove("show"),3500);
-}
-
-function search(){
-
-const place=document.getElementById("destination").value.trim();
-const guests=document.getElementById("guests").value;
-const inDate=document.getElementById("checkin").value;
-const outDate=document.getElementById("checkout").value;
-
-if(!place){
-notify("Lütfen gitmek istediğiniz yeri yazın.");
-document.getElementById("destination").focus();
-return;
-}
-
-if(inDate && outDate && outDate<inDate){
-notify("Çıkış tarihi giriş tarihinden önce olamaz.");
-return;
-}
-
-document.getElementById("resultText").textContent=
-place+" için "+guests+" misafir adına seçenekler";
-
-document.getElementById("results").classList.add("show");
-
-document.getElementById("results").scrollIntoView({
-behavior:"smooth"
-});
-
-notify(place+" için seçenekler hazır.");
-}
-
-function destination(place){
-
-document.getElementById("destination").value=place;
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-notify(place+" seçildi.");
-
-}
-
-function booking(service){
-
-selectedService=service;
-
-document.getElementById("modalTitle").textContent=service;
-
-document.getElementById("modal").classList.add("show");
-
-}
-
-function closeModal(){
-document.getElementById("modal").classList.remove("show");
-}
-
-document.getElementById("form").addEventListener("submit",async function(e){
-
-e.preventDefault();
-
-const number="NOVA-"+Date.now().toString().slice(-8);
-
-const data={
-bookingNumber:number,
-serviceType:selectedService,
-name:document.getElementById("name").value,
-email:document.getElementById("email").value,
-phone:document.getElementById("phone").value,
-guests:document.getElementById("modalGuests").value,
-checkin:document.getElementById("modalCheckin").value,
-checkout:document.getElementById("modalCheckout").value,
-notes:document.getElementById("notes").value,
-destination:document.getElementById("destination").value,
-createdAt:new Date().toISOString()
-};
-
-try{
-
-if(window.NOVAERA_FIREBASE){
-
-await window.NOVAERA_FIREBASE.addBooking(data);
-
-}
-
-localStorage.setItem(
-"novaera_last_booking",
-JSON.stringify(data)
-);
-
-notify("Talebiniz alındı. Rezervasyon No: "+number);
-
-document.getElementById("form").reset();
-
-closeModal();
-
-}catch(error){
-
-console.error(error);
-
-notify("Talep oluşturulurken bir hata oluştu.");
-
-}
-
-});
-
-
-document.addEventListener("click",function(e){
-
-const menu=document.getElementById("menu");
-const button=document.querySelector(".menu-btn");
-
-if(menu.classList.contains("show") &&
-!menu.contains(e.target) &&
-!button.contains(e.target)){
-
-menu.classList.remove("show");
-
-}
-
-});
-
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-closeModal();
-document.getElementById("menu").classList.remove("show");
-}
-
-});
-
-document.getElementById("modal").addEventListener("click",function(e){
-
-if(e.target===this){
-closeModal();
-}
-
-});
-
-const today=new Date().toISOString().split("T")[0];
-
-document.getElementById("checkin").min=today;
-document.getElementById("checkout").min=today;
-document.getElementById("modalCheckin").min=today;
-document.getElementById("modalCheckout").min=today;
-
-document.getElementById("checkin").addEventListener("change",function(){
-document.getElementById("checkout").min=this.value;
-});
-
-document.getElementById("modalCheckin").addEventListener("change",function(){
-document.getElementById("modalCheckout").min=this.value;
-});
-
-</script>
-
-
-<script type="module">
-
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-
-import {
-getFirestore,
-collection,
-addDoc,
-serverTimestamp
-}
-from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-
-const firebaseConfig={
-
-apiKey:"AIzaSyC56d_Cnh2lZIimgifSkiqk5GggU-aX1G4",
-
-authDomain:"novaera-2f0d2.firebaseapp.com",
-
-projectId:"novaera-2f0d2",
-
-storageBucket:"novaera-2f0d2.firebasestorage.app",
-
-messagingSenderId:"877581197546",
-
-appId:"1:877581197546:web:2d24a9989d21505f2c3793",
-
-measurementId:"G-VSLTN4QBL8"
-
-};
-
-
-try{
-
-const app=initializeApp(firebaseConfig);
-
-const db=getFirestore(app);
-
-window.NOVAERA_FIREBASE={
-
-addBooking:async function(data){
-
-return await addDoc(
-collection(db,"bookings"),
-{
-...data,
-guests:Number(data.guests),
-status:"Yeni",
-source:"novaera-web",
-createdAt:serverTimestamp()
-}
-);
-
-}
-
-};
-
-document.getElementById("firebaseStatus").textContent=
-"Firebase bağlantısı hazır";
-
-}catch(error){
-
-console.error(error);
-
-document.getElementById("firebaseStatus").textContent=
-"Firebase bağlantısı beklemede";
-
-}
-
-</script>
-
-</body>
-  </html>
+  <d

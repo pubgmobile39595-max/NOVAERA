@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOVAERA | Seyahat Platformu</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#07101d;color:#fff}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.container{width:min(1150px,92%);margin:auto}
+
+header{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+height:70px;background:rgba(5,12,23,.94);
+border-bottom:1px solid #263246
+}
+
+.nav{
+height:70px;display:flex;align-items:center;
+justify-content:space-between
+}
+
+.logo{font-size:21px;font-weight:bold;letter-spacing:2px}
+.logo b{
+display:inline-grid;place-items:center;
+width:34px;height:34px;margin-right:8px;
+border-radius:10px;background:#fff;color:#07101d
+}
+
+.menu-btn{
+width:45px;height:45px;border:1px solid #344157;
+background:#111d30;color:#fff;border-radius:10px;
+font-size:22px
+}
+
+.menu{
+display:none;position:absolute;right:4%;
+top:65px;width:230px;padding:10px;
+background:#101c2e;border:1px solid #344157;
+border-radius:15px
+}
+.menu.show{display:block}
+.menu button{
+display:block;width:100%;padding:13px;
+border:0;background:transparent;color:#fff;
+text-align:left;border-radius:8px
+}
+.menu button:hover{background:#1c2b43}
+
+.hero{
+min-height:750px;padding-top:150px;
+display:flex;align-items:center;
+background:
+linear-gradient(90deg,rgba(3,8,17,.94),rgba(3,8,17,.55)),
+url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=80")
+center/cover
+}
+
+.badge{color:#9eb2ff;font-weight:bold;margin-bottom:20px}
+h1{font-size:clamp(48px,8vw,90px);line-height:.95;margin-bottom:25px}
+.hero p{max-width:680px;color:#c5cfdd;font-size:18px;margin-bottom:30px}
+
+.search{
+background:#fff;color:#111;border-radius:18px;
+padding:10px;display:grid;
+grid-template-columns:1.5fr 1fr 1fr .7fr 100px;
+gap:8px
+}
+
+.field{padding:10px}
+.field label{display:block;font-size:11px;color:#777;font-weight:bold;margin-bottom:5px}
+.field input{
+width:100%;border:0;outline:0;background:transparent;color:#111
+}
+
+.search button,.primary{
+border:0;border-radius:12px;
+background:#111827;color:#fff;font-weight:bold;
+padding:12px 18px
+}
+
+section{padding:85px 0}
+.heading{margin-bottom:35px}
+.heading small{color:#9eb2ff;font-weight:bold}
+.heading h2{font-size:45px;margin:8px 0}
+.heading p{color:#93a0b3;max-width:650px}
+
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+.card{
+background:#0d192a;border:1px solid #253247;
+border-radius:20px;padding:25px;
+transition:.2s
+}
+.card:hover{transform:translateY(-5px);border-color:#667fff}
+.icon{font-size:35px;margin-bottom:15px}
+.card p{color:#94a1b3;font-size:14px;margin:10px 0 18px}
+.card button{
+padding:10px 14px;border:1px solid #39475c;
+border-radius:9px;background:#17243a;color:#fff
+}
+
+.dest{
+height:290px;border-radius:20px;
+position:relative;overflow:hidden;
+background-size:cover;background-position:center;
+cursor:pointer
+}
+.dest:after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(transparent,rgba(0,0,0,.9))
+}
+.dest div{position:absolute;z-index:2;bottom:20px;left:20px}
+.dest small{color:#ccd5e2}
+.dest h3{font-size:26px}
+
+.exp{
+overflow:hidden;background:#0d192a;
+border:1px solid #253247;border-radius:20px
+}
+.exp-img{height:210px;background-size:cover;background-position:center}
+.exp-body{padding:22px}
+.exp-body p{color:#94a1b3;margin:8px 0 18px}
+
+.cta{
+text-align:center;padding:70px 25px;
+border-radius:25px;background:#101e32;
+border:1px solid #29374c
+}
+.cta h2{font-size:45px;margin-bottom:12px}
+.cta p{color:#94a1b3;margin-bottom:25px}
+
+footer{
+padding:55px 0 30px;background:#040a12;
+border-top:1px solid #202c3d
+}
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px
+}
+footer h4{margin-bottom:14px}
+footer a,footer p{display:block;color:#8290a4;margin:8px 0;font-size:14px}
+.copy{border-top:1px solid #1c2838;margin-top:35px;padding-top:20px;color:#687589;font-size:13px}
+
+.results{display:none}
+.results.show{display:block}
+.result-box{
+background:#0d192a;border:1px solid #29374c;
+border-radius:20px;padding:25px
+}
+
+.modal{
+display:none;position:fixed;inset:0;z-index:3000;
+background:rgba(0,0,0,.8);
+align-items:center;justify-content:center;padding:15px
+}
+.modal.show{display:flex}
+.modal-box{
+width:min(600px,100%);max-height:90vh;overflow:auto;
+background:#101c2e;border:1px solid #344157;
+border-radius:20px;padding:25px;position:relative
+}
+.close{
+position:absolute;right:15px;top:15px;
+background:#243148;color:#fff;border:0;
+width:38px;height:38px;border-radius:9px;font-size:20px
+}
+.form{margin-top:25px}
+.form label{display:block;font-size:13px;color:#aeb8c7;margin:13px 0 6px}
+.form input,.form textarea{
+width:100%;padding:12px;border-radius:9px;
+border:1px solid #344157;background:#081321;color:#fff
+}
+.form textarea{min-height:100px}
+.form button{width:100%;margin-top:18px;padding:14px}
+
+.toast{
+position:fixed;z-index:5000;bottom:20px;right:20px;
+background:#16253b;border:1px solid #41516a;
+padding:15px 18px;border-radius:12px;
+transform:translateY(100px);opacity:0;transition:.25s
+}
+.toast.show{transform:translateY(0);opacity:1}
+
+.firebase{
+position:fixed;left:8px;bottom:8px;z-index:4000;
+font-size:10px;color:#72e0a0;background:#000b;padding:5px 8px;
+border-radius:6px
+}
+
+@media(max-width:850px){
+.search{grid-template-columns:1fr}
+.search button{height:50px}
+.grid4{grid-template-columns:repeat(2,1fr)}
+.grid3{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:520px){
+.grid4{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.hero{min-height:850px}
+section{padding:65px 0}
+.heading h2,.cta h2{font-size:34px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a class="logo" href="#home">
+<b>N</b>NOVAERA
+</a>
+
+<button class="menu-btn" onclick="menuToggle()">☰</button>
+
+<div id="menu" class="menu">
+<button onclick="go('home')">Ana Sayfa</button>
+<button onclick="go('services')">Hizmetler</button>
+<button onclick="go('destinations')">Destinasyonlar</button>
+<button onclick="go('experiences')">Deneyimler</button>
+<button onclick="go('why')">Neden NOVAERA?</button>
+<button onclick="booking('Genel Seyahat Talebi')">Seyahat Planla</button>
+<button onclick="go('contact')">İletişim</button>
+</div>
+
+</div>
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+<div class="container">
+
+<div class="badge">✦ YENİ NESİL SEYAHAT PLATFORMU</div>
+
+<h1>Dünyayı<br>keşfetmenin<br>yeni yolu.</h1>
+
+<p>
+Otellerden özel turlara, havalimanı transferlerinden
+VIP seyahat deneyimlerine kadar yolculuğunuzu
+tek noktadan planlayın.
+</p>
+
+<div class="search">
+
+<div class="field">
+<label>Nereye?</label>
+<input id="destination" placeholder="Şehir veya ülke">
+</div>
+
+<div class="field">
+<label>Giriş</label>
+<input id="checkin" type="date">
+</div>
+
+<div class="field">
+<label>Çıkış</label>
+<input id="checkout" type="date">
+</div>
+
+<div class="field">
+<label>Misafir</label>
+<input id="guests" type="number" min="1" value="2">
+</div>
+
+<button onclick="search()">Ara</button>
+
+</div>
+</div>
+</section>
+
+
+<section id="results" class="results">
+<div class="container">
+<div class="result-box">
+
+<h2 id="resultText">Sonuçlar</h2>
+
+<br>
+
+<div class="grid3">
+
+<div class="card">
+<div class="icon">🏨</div>
+<h3>Otel</h3>
+<p>Konaklama seçenekleri için talep oluşturun.</p>
+<button onclick="booking('Otel Rezervasyonu')">Rezervasyon</button>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>Tur</h3>
+<p>Yurt içi ve yurt dışı tur talebinizi oluşturun.</p>
+<button onclick="booking('Tur Talebi')">Talep Al</button>
+</div>
+
+<div class="card">
+<div class="icon">🚘</div>
+<h3>Transfer</h3>
+<p>Havalimanı veya özel transfer talebi oluşturun.</p>
+<button onclick="booking('Transfer Talebi')">Talep Al</button>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="services">
+<div class="container">
+
+<div class="heading">
+<small>HİZMETLER</small>
+<h2>Her yolculuk için<br>tek platform.</h2>
+<p>NOVAERA ile konaklama, tur, transfer ve özel seyahat hizmetlerini tek noktadan planlayabilirsiniz.</p>
+</div>
+
+<div class="grid4">
+
+<div class="card">
+<div class="icon">🏨</div>
+<h3>Oteller</h3>
+<p>Şehir otellerinden lüks resortlara kadar konaklama seçenekleri.</p>
+<button onclick="booking('Otel Rezervasyonu')">Otel Planla →</button>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>Turlar</h3>
+<p>Yurt içi ve yurt dışı keşif deneyimleri.</p>
+<button onclick="booking('Tur Talebi')">Tur Planla →</button>
+</div>
+
+<div class="card">
+<div class="icon">🚘</div>
+<h3>Transfer</h3>
+<p>Havalimanı ve şehirler arası transfer hizmetleri.</p>
+<button onclick="booking('Transfer Talebi')">Transfer Planla →</button>
+</div>
+
+<div class="card">
+<div class="icon">✦</div>
+<h3>VIP Seyahat</h3>
+<p>Özel araç, özel transfer ve kişiselleştirilmiş seyahat planları.</p>
+<button onclick="booking('VIP Seyahat')">VIP Planla →</button>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="destinations">
+<div class="container">
+
+<div class="heading">
+<small>DESTİNASYONLAR</small>
+<h2>Popüler destinasyonlar.</h2>
+<p>Dünyanın farklı noktalarında yeni deneyimler keşfedin.</p>
+</div>
+
+<div class="grid4">
+
+<div class="dest"
+style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80')"
+onclick="destination('İstanbul')">
+<div><small>Türkiye</small><h3>İstanbul</h3></div>
+</div>
+
+<div class="dest"
+style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80')"
+onclick="destination('Dubai')">
+<div><small>Birleşik Arap Emirlikleri</small><h3>Dubai</h3></div>
+</div>
+
+<div class="dest"
+style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80')"
+onclick="destination('Paris')">
+<div><small>Fransa</small><h3>Paris</h3></div>
+</div>
+
+<div class="dest"
+style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80')"
+onclick="destination('Maldivler')">
+<div><small>Maldivler</small><h3>Maldivler</h3></div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="experiences">
+<div class="container">
+
+<div class="heading">
+<small>ÖNE ÇIKAN DENEYİMLER</small>
+<h2>Özel seyahat fikirleri.</h2>
+<p>Yakında NOVAERA üzerinden sunulacak seyahat deneyimleri.</p>
+</div>
+
+<div class="grid3">
+
+<div class="exp">
+<div class="exp-img"
+style="background-image:url('https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=900&q=80')"></div>
+<div class="exp-body">
+<h3>İstanbul Weekend</h3>
+<p>İstanbul'da kısa süreli şehir deneyimi.</p>
+<button class="primary" onclick="booking('İstanbul Weekend')">Talep Al</button>
+</div>
+</div>
+
+<div class="exp">
+<div class="exp-img"
+style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80')"></div>
+<div class="exp-body">
+<h3>Dubai Experience</h3>
+<p>Dubai için kişiselleştirilmiş seyahat planı.</p>
+<button class="primary" onclick="booking('Dubai Experience')">Talep Al</button>
+</div>
+</div>
+
+<div class="exp">
+<div class="exp-img"
+style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')"></div>
+<div class="exp-body">
+<h3>Maldivler Escape</h3>
+<p>Özel tatil planlaması ve transfer seçenekleri.</p>
+<button class="primary" onclick="booking('Maldivler Escape')">Talep Al</button>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="why">
+<div class="container">
+
+<div class="heading">
+<small>NEDEN NOVAERA?</small>
+<h2>Seyahati daha kolay hale getirin.</h2>
+<p>Modern ve kişiselleştirilebilir seyahat planlama deneyimi.</p>
+</div>
+
+<div class="grid3">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Kolay Planlama</h3>
+<p>Seyahatinizin temel ihtiyaçlarını tek noktadan planlayın.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔒</div>
+<h3>Güvenli Süreç</h3>
+<p>Rezervasyon taleplerinizi düzenli şekilde yönetin.</p>
+</div>
+
+<div class="card">
+<div class="icon">✦</div>
+<h3>Kişiselleştirme</h3>
+<p>Özel seyahat talepleriniz için planlama desteği.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section>
+<div class="container">
+<div class="cta">
+
+<h2>Bir sonraki yolculuğunuzu planlayın.</h2>
+
+<p>
+Gideceğiniz yeri, tarihleri ve kişi sayısını belirleyin.
+NOVAERA üzerinden seyahat talebinizi oluşturun.
+</p>
+
+<button class="primary" onclick="booking('Genel Seyahat Talebi')">
+Seyahat Planla
+</button>
+
+</div>
+</div>
+</section>
+
+</main>
+
+
+<footer id="contact">
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+<div class="logo"><b>N</b>NOVAERA</div>
+<p>Dünyayı keşfetmenin yeni yolu.</p>
+<p>Otel, tur, transfer ve özel seyahat hizmetleri.</p>
+</div>
+
+<div>
+<h4>Keşfet</h4>
+<a href="#destinations">Destinasyonlar</a>
+<a href="#experiences">Deneyimler</a>
+<a href="#services">Hizmetler</a>
+</div>
+
+<div>
+<h4>Hizmetler</h4>
+<a href="#services">Otel</a>
+<a href="#services">Tur</a>
+<a href="#services">Transfer</a>
+<a href="#services">VIP Seyahat</a>
+</div>
+
+<div>
+<h4>İletişim</h4>
+<a href="mailto:info@novaera.com">info@novaera.com</a>
+<a href="tel:+905000000000">+90 500 000 00 00</a>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 NOVAERA. Tüm hakları saklıdır.
+</div>
+
+</div>
+</footer>
+
+
+<div id="modal" class="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<h2 id="modalTitle">Seyahat Talebi</h2>
+
+<form id="form" class="form">
+
+<label>Ad Soyad</label>
+<input id="name" required>
+
+<label>E-posta</label>
+<input id="email" type="email" required>
+
+<label>Telefon</label>
+<input id="phone" required>
+
+<label>Misafir Sayısı</label>
+<input id="modalGuests" type="number" min="1" value="2" required>
+
+<label>Giriş</label>
+<input id="modalCheckin" type="date">
+
+<label>Çıkış</label>
+<input id="modalCheckout" type="date">
+
+<label>Notunuz</label>
+<textarea id="notes" placeholder="Özel talepleriniz..."></textarea>
+
+<button class="primary" type="submit">
+Talep Oluştur
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+<div id="firebaseStatus" class="firebase">
+Firebase bağlantısı hazırlanıyor...
+</div>
+
+
+<script>
+let selectedService="Genel Seyahat Talebi";
+
+function menuToggle(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+function go(id){
+document.getElementById("menu").classList.remove("show");
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function notify(text){
+const t=document.getElementById("toast");
+t.textContent=text;
+t.classList.add("show");
+setTimeout(()=>t.classList.remove("show"),3500);
+}
+
+function search(){
+
+const place=document.getElementById("destination").value.trim();
+const guests=document.getElementById("guests").value;
+const inDate=document.getElementById("checkin").value;
+const outDate=document.getElementById("checkout").value;
+
+if(!place){
+notify("Lütfen gitmek istediğiniz yeri yazın.");
+document.getElementById("destination").focus();
+return;
+}
+
+if(inDate && outDate && outDate<inDate){
+notify("Çıkış tarihi giriş tarihinden önce olamaz.");
+return;
+}
+
+document.getElementById("resultText").textContent=
+place+" için "+guests+" misafir adına seçenekler";
+
+document.getElementById("results").classList.add("show");
+
+document.getElementById("results").scrollIntoView({
+behavior:"smooth"
+});
+
+notify(place+" için seçenekler hazır.");
+}
+
+function destination(place){
+
+document.getElementById("destination").value=place;
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+notify(place+" seçildi.");
+
+}
+
+function booking(service){
+
+selectedService=service;
+
+document.getElementById("modalTitle").textContent=service;
+
+document.getElementById("modal").classList.add("show");
+
+}
+
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+
+document.getElementById("form").addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const number="NOVA-"+Date.now().toString().slice(-8);
+
+const data={
+bookingNumber:number,
+serviceType:selectedService,
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value,
+guests:document.getElementById("modalGuests").value,
+checkin:document.getElementById("modalCheckin").value,
+checkout:document.getElementById("modalCheckout").value,
+notes:document.getElementById("notes").value,
+destination:document.getElementById("destination").value,
+createdAt:new Date().toISOString()
+};
+
+try{
+
+if(window.NOVAERA_FIREBASE){
+
+await window.NOVAERA_FIREBASE.addBooking(data);
+
+}
+
+localStorage.setItem(
+"novaera_last_booking",
+JSON.stringify(data)
+);
+
+notify("Talebiniz alındı. Rezervasyon No: "+number);
+
+document.getElementById("form").reset();
+
+closeModal();
+
+}catch(error){
+
+console.error(error);
+
+notify("Talep oluşturulurken bir hata oluştu.");
+
+}
+
+});
+
+
+document.addEventListener("click",function(e){
+
+const menu=document.getElementById("menu");
+const button=document.querySelector(".menu-btn");
+
+if(menu.classList.contains("show") &&
+!menu.contains(e.target) &&
+!button.contains(e.target)){
+
+menu.classList.remove("show");
+
+}
+
+});
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+closeModal();
+document.getElementById("menu").classList.remove("show");
+}
+
+});
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+if(e.target===this){
+closeModal();
+}
+
+});
+
+const today=new Date().toISOString().split("T")[0];
+
+document.getElementById("checkin").min=today;
+document.getElementById("checkout").min=today;
+document.getElementById("modalCheckin").min=today;
+document.getElementById("modalCheckout").min=today;
+
+document.getElementById("checkin").addEventListener("change",function(){
+document.getElementById("checkout").min=this.value;
+});
+
+document.getElementById("modalCheckin").addEventListener("change",function(){
+document.getElementById("modalCheckout").min=this.value;
+});
+
+</script>
+
+
+<script type="module">
+
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+
+const firebaseConfig={
+
+apiKey:"AIzaSyC56d_Cnh2lZIimgifSkiqk5GggU-aX1G4",
+
+authDomain:"novaera-2f0d2.firebaseapp.com",
+
+projectId:"novaera-2f0d2",
+
+storageBucket:"novaera-2f0d2.firebasestorage.app",
+
+messagingSenderId:"877581197546",
+
+appId:"1:877581197546:web:2d24a9989d21505f2c3793",
+
+measurementId:"G-VSLTN4QBL8"
+
+};
+
+
+try{
+
+const app=initializeApp(firebaseConfig);
+
+const db=getFirestore(app);
+
+window.NOVAERA_FIREBASE={
+
+addBooking:async function(data){
+
+return await addDoc(
+collection(db,"bookings"),
+{
+...data,
+guests:Number(data.guests),
+status:"Yeni",
+source:"novaera-web",
+createdAt:serverTimestamp()
+}
+);
+
+}
+
+};
+
+document.getElementById("firebaseStatus").textContent=
+"Firebase bağlantısı hazır";
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById("firebaseStatus").textContent=
+"Firebase bağlantısı beklemede";
+
+}
+
+</script>
+
+</body>
+  </html>

@@ -1,831 +1,790 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NOVAERA — Dünyayı Keşfetmenin Yeni Yolu</title>
+    <title>NOVAERA — Premium Travel Platform</title>
 
-  <meta
-    name="description"
-    content="NOVAERA ile otel, tur, transfer ve özel seyahat deneyimlerinizi keşfedin."
-  >
+    <meta
+        name="description"
+        content="NOVAERA ile otel, tur, transfer ve kişiselleştirilmiş seyahat deneyimlerini keşfedin."
+    >
 
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <!-- =====================================================
-       BACKGROUND
-  ====================================================== -->
-
-  <div class="space-background">
-
-    <div class="stars stars-one"></div>
-    <div class="stars stars-two"></div>
-
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-
-    <div class="glow-line line-one"></div>
-    <div class="glow-line line-two"></div>
-
-  </div>
-
-
-  <!-- =====================================================
-       NAVBAR
-  ====================================================== -->
-
-  <header class="navbar">
-
-    <div class="container nav-container">
-
-      <a href="index.html" class="logo">
-        NOVA<span>ERA</span>
-      </a>
-
-      <nav class="desktop-nav">
-
-        <a href="index.html" class="active">
-          Ana Sayfa
-        </a>
-
-        <a href="services.html">
-          Hizmetler
-        </a>
-
-        <a href="destinations.html">
-          Destinasyonlar
-        </a>
-
-        <a href="about.html">
-          Hakkımızda
-        </a>
-
-        <a href="contact.html">
-          İletişim
-        </a>
-
-      </nav>
-
-      <a href="reservation.html" class="nav-reservation">
-        Rezervasyon
-        <span>↗</span>
-      </a>
-
-      <button
-        class="mobile-menu-button"
-        id="mobileMenuButton"
-        aria-label="Menüyü aç"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="aurora aurora-one"></div>
+        <div class="aurora aurora-two"></div>
+        <div class="aurora aurora-three"></div>
+        <div class="stars"></div>
+        <div class="grid-background"></div>
     </div>
 
 
-    <!-- MOBILE MENU -->
+    <!-- NAVBAR -->
+    <header class="navbar">
 
-    <div class="mobile-menu" id="mobileMenu">
+        <div class="nav-container">
 
-      <a href="index.html">
-        Ana Sayfa
-      </a>
-
-      <a href="services.html">
-        Hizmetler
-      </a>
-
-      <a href="destinations.html">
-        Destinasyonlar
-      </a>
-
-      <a href="about.html">
-        Hakkımızda
-      </a>
-
-      <a href="contact.html">
-        İletişim
-      </a>
-
-      <a href="reservation.html" class="mobile-reservation">
-        Rezervasyon Oluştur
-      </a>
-
-    </div>
-
-  </header>
-
-
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
-
-  <main>
-
-    <section class="hero">
-
-      <div class="container hero-container">
-
-        <div class="hero-content">
-
-          <div class="hero-eyebrow">
-
-            <span class="eyebrow-dot"></span>
-
-            PREMIUM TRAVEL PLATFORM
-
-            <span class="eyebrow-line"></span>
-
-          </div>
-
-
-          <h1>
-
-            Dünyayı
-
-            <span>
-              keşfetmenin
-            </span>
-
-            yeni yolu.
-
-          </h1>
-
-
-          <p class="hero-description">
-
-            NOVAERA, seyahat planlamasını tek bir deneyimde
-            birleştirir. Konaklama, turlar, transferler ve
-            kişiselleştirilmiş seyahat çözümleri.
-
-          </p>
-
-
-          <div class="hero-buttons">
-
-            <a
-              href="reservation.html"
-              class="button-primary"
-            >
-
-              Seyahatini Planla
-
-              <span>→</span>
-
+            <a href="#home" class="logo">
+                NOVA<span>ERA</span>
             </a>
 
-
-            <a
-              href="destinations.html"
-              class="button-secondary"
-            >
-
-              Destinasyonları Keşfet
-
-            </a>
-
-          </div>
-
-
-          <!-- HERO STATS -->
-
-          <div class="hero-stats">
-
-            <div class="hero-stat">
-
-              <strong>24/7</strong>
-
-              <span>
-                Seyahat Desteği
-              </span>
-
-            </div>
-
-
-            <div class="stat-divider"></div>
-
-
-            <div class="hero-stat">
-
-              <strong>∞</strong>
-
-              <span>
-                Keşif İmkanı
-              </span>
-
-            </div>
-
-
-            <div class="stat-divider"></div>
-
-
-            <div class="hero-stat">
-
-              <strong>01</strong>
-
-              <span>
-                Seyahat Platformu
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             HERO VISUAL
-        ================================================== -->
-
-        <div class="hero-visual">
-
-          <div class="planet-shadow"></div>
-
-          <div class="planet">
-
-            <div class="planet-grid"></div>
-
-            <div class="planet-glow"></div>
-
-          </div>
-
-
-          <div class="orbit orbit-large"></div>
-
-          <div class="orbit orbit-small"></div>
-
-
-          <div class="floating-card card-location">
-
-            <div class="floating-icon">
-              ◉
-            </div>
-
-            <div>
-
-              <span>
-                NEXT DESTINATION
-              </span>
-
-              <strong>
-                Anywhere.
-              </strong>
-
-            </div>
-
-          </div>
-
-
-          <div class="floating-card card-route">
-
-            <div class="route-point"></div>
-
-            <div class="route-line"></div>
-
-            <div class="route-point"></div>
-
-          </div>
-
-
-          <div class="floating-card card-status">
-
-            <span>
-              TRAVEL STATUS
-            </span>
-
-            <strong>
-              READY TO EXPLORE
-            </strong>
-
-            <div class="status-bar">
-              <i></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SEARCH
-    ====================================================== -->
-
-    <section class="travel-search-section">
-
-      <div class="container">
-
-        <div class="travel-search">
-
-          <div class="search-heading">
-
-            <span>
-              NOVAERA SEARCH
-            </span>
-
-            <h2>
-              Yolculuğunuz nerede başlıyor?
-            </h2>
-
-          </div>
-
-
-          <div class="search-fields">
-
-            <div class="search-field">
-
-              <label>
-                DESTİNASYON
-              </label>
-
-              <input
-                id="destinationInput"
-                type="text"
-                placeholder="Nereye gitmek istiyorsunuz?"
-              >
-
-            </div>
-
-
-            <div class="search-field">
-
-              <label>
-                HİZMET
-              </label>
-
-              <select id="serviceInput">
-
-                <option value="Otel">
-                  Otel
-                </option>
-
-                <option value="Tur">
-                  Tur
-                </option>
-
-                <option value="Transfer">
-                  Transfer
-                </option>
-
-                <option value="VIP">
-                  VIP Seyahat
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="search-field">
-
-              <label>
-                TARİH
-              </label>
-
-              <input
-                id="dateInput"
-                type="date"
-              >
-
-            </div>
-
+            <nav class="nav-menu" id="navMenu">
+
+                <a href="#home">Ana Sayfa</a>
+                <a href="#services">Hizmetler</a>
+                <a href="#destinations">Destinasyonlar</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#contact">İletişim</a>
+
+            </nav>
 
             <button
-              class="search-button"
-              id="searchButton"
+                class="nav-reservation"
+                data-open-booking
             >
-
-              <span>
-                Ara
-              </span>
-
-              <strong>
-                →
-              </strong>
-
+                Rezervasyon
+                <span>↗</span>
             </button>
 
-          </div>
-
-
-          <div
-            class="search-message"
-            id="searchMessage"
-          ></div>
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-label="Menüyü aç"
+            >
+                ☰
+            </button>
 
         </div>
 
-      </div>
-
-    </section>
+    </header>
 
 
-    <!-- =====================================================
-         FEATURED SERVICES
-    ====================================================== -->
+    <!-- HERO -->
+    <main id="home">
 
-    <section class="featured-section">
+        <section class="hero">
 
-      <div class="container">
+            <div class="hero-container">
 
-        <div class="section-heading">
+                <!-- LEFT -->
+                <div class="hero-content">
 
-          <div>
+                    <div class="eyebrow">
+                        <span class="pulse"></span>
+                        PREMIUM TRAVEL PLATFORM
+                    </div>
+
+                    <h1>
+                        Dünyayı
+                        <span>yeniden</span>
+                        keşfet.
+                    </h1>
+
+                    <p class="hero-description">
+                        NOVAERA; konaklama, turlar, transferler ve
+                        kişiselleştirilmiş seyahat çözümlerini tek
+                        bir premium deneyimde birleştirir.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="primary-button"
+                            data-open-booking
+                        >
+                            Seyahatini Planla
+                            <span>→</span>
+                        </button>
+
+                        <a
+                            href="#destinations"
+                            class="secondary-button"
+                        >
+                            Destinasyonları Keşfet
+                        </a>
+
+                    </div>
+
+                    <div class="hero-stats">
+
+                        <div>
+                            <strong>24/7</strong>
+                            <span>Seyahat Desteği</span>
+                        </div>
+
+                        <div>
+                            <strong>∞</strong>
+                            <span>Keşif İmkanı</span>
+                        </div>
+
+                        <div>
+                            <strong>01</strong>
+                            <span>Premium Platform</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT VISUAL -->
+                <div class="hero-visual">
+
+                    <div class="planet-system">
+
+                        <div class="orbit orbit-large"></div>
+                        <div class="orbit orbit-medium"></div>
+                        <div class="orbit orbit-small"></div>
+
+                        <div class="planet">
+
+                            <div class="planet-light"></div>
+
+                            <div class="planet-lines"></div>
+
+                        </div>
+
+                        <div class="location-dot dot-one"></div>
+                        <div class="location-dot dot-two"></div>
+                        <div class="location-dot dot-three"></div>
+
+                        <div class="floating-card card-top">
+
+                            <small>NEXT DESTINATION</small>
+
+                            <strong>Anywhere.</strong>
+
+                        </div>
+
+                        <div class="floating-card card-bottom">
+
+                            <small>TRAVEL STATUS</small>
+
+                            <strong>
+                                READY TO EXPLORE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <div class="search-heading">
+
+                    <span>NOVAERA SEARCH</span>
+
+                    <h2>
+                        Yolculuğunuz
+                        <strong>nerede başlıyor?</strong>
+                    </h2>
+
+                </div>
+
+
+                <form id="searchForm" class="search-form">
+
+                    <div class="search-field">
+
+                        <label>DESTİNASYON</label>
+
+                        <input
+                            type="text"
+                            id="searchDestination"
+                            placeholder="Nereye gitmek istiyorsunuz?"
+                        >
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <label>HİZMET</label>
+
+                        <select id="searchService">
+
+                            <option value="Otel">
+                                Otel
+                            </option>
+
+                            <option value="Tur">
+                                Tur
+                            </option>
+
+                            <option value="Transfer">
+                                Transfer
+                            </option>
+
+                            <option value="VIP Seyahat">
+                                VIP Seyahat
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <label>TARİH</label>
+
+                        <input
+                            type="date"
+                            id="searchDate"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="search-button"
+                    >
+                        Ara
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+                <div
+                    id="searchResult"
+                    class="search-result"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section
+            class="section services-section"
+            id="services"
+        >
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            WHAT WE OFFER
+                        </span>
+
+                        <h2>
+                            Seyahatin
+                            <span>her aşaması.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Yolculuğunuzu planlamaktan varış
+                        noktanıza kadar ihtiyaç duyduğunuz
+                        temel seyahat hizmetlerini tek yerde
+                        keşfedin.
+                    </p>
+
+                </div>
+
+
+                <div class="service-grid">
+
+
+                    <article
+                        class="service-card"
+                        data-service="Otel"
+                    >
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <div class="service-icon">
+                            ◈
+                        </div>
+
+                        <h3>Konaklama</h3>
+
+                        <p>
+                            Seyahatinize uygun konaklama
+                            seçenekleri için talebinizi
+                            oluşturun.
+                        </p>
+
+                        <button
+                            class="service-link"
+                            data-open-booking
+                            data-service="Otel"
+                        >
+                            Konaklama planla →
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="service-card"
+                        data-service="Tur"
+                    >
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <div class="service-icon">
+                            ◌
+                        </div>
+
+                        <h3>Turlar</h3>
+
+                        <p>
+                            Yeni şehirleri, kültürleri ve
+                            deneyimleri keşfetmek için
+                            seyahatinizi planlayın.
+                        </p>
+
+                        <button
+                            class="service-link"
+                            data-open-booking
+                            data-service="Tur"
+                        >
+                            Tur oluştur →
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="service-card"
+                        data-service="Transfer"
+                    >
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <div class="service-icon">
+                            ◇
+                        </div>
+
+                        <h3>Transfer</h3>
+
+                        <p>
+                            Havalimanı ve şehir içi transfer
+                            ihtiyaçlarınızı önceden planlayın.
+                        </p>
+
+                        <button
+                            class="service-link"
+                            data-open-booking
+                            data-service="Transfer"
+                        >
+                            Transfer planla →
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="service-card"
+                        data-service="VIP Seyahat"
+                    >
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <div class="service-icon">
+                            ✦
+                        </div>
+
+                        <h3>VIP Seyahat</h3>
+
+                        <p>
+                            Size özel oluşturulan premium
+                            seyahat deneyimleri için talep
+                            oluşturun.
+                        </p>
+
+                        <button
+                            class="service-link"
+                            data-open-booking
+                            data-service="VIP Seyahat"
+                        >
+                            VIP talebi oluştur →
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESTINATIONS -->
+        <section
+            class="section destinations-section"
+            id="destinations"
+        >
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            DISCOVER THE WORLD
+                        </span>
+
+                        <h2>
+                            Bir sonraki hikâyeniz
+                            <span>nerede başlayacak?</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Dünyanın farklı noktalarını NOVAERA
+                        deneyimiyle keşfetmek için seyahat
+                        planınızı oluşturun.
+                    </p>
+
+                </div>
+
+
+                <div class="destination-grid">
+
+
+                    <article
+                        class="destination-card destination-istanbul"
+                        data-destination="İstanbul"
+                    >
+
+                        <div class="destination-overlay"></div>
+
+                        <div class="destination-content">
+
+                            <span>
+                                TÜRKİYE
+                            </span>
+
+                            <h3>İstanbul</h3>
+
+                            <p>
+                                İki kıta. Tek şehir.
+                            </p>
+
+                            <button
+                                data-destination-button="İstanbul"
+                            >
+                                Keşfet →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="destination-card destination-dubai"
+                        data-destination="Dubai"
+                    >
+
+                        <div class="destination-overlay"></div>
+
+                        <div class="destination-content">
+
+                            <span>
+                                BAE
+                            </span>
+
+                            <h3>Dubai</h3>
+
+                            <p>
+                                Geleceğin şehri.
+                            </p>
+
+                            <button
+                                data-destination-button="Dubai"
+                            >
+                                Keşfet →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="destination-card destination-paris"
+                        data-destination="Paris"
+                    >
+
+                        <div class="destination-overlay"></div>
+
+                        <div class="destination-content">
+
+                            <span>
+                                FRANSA
+                            </span>
+
+                            <h3>Paris</h3>
+
+                            <p>
+                                Işıklar şehri.
+                            </p>
+
+                            <button
+                                data-destination-button="Paris"
+                            >
+                                Keşfet →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section
+            class="section about-section"
+            id="about"
+        >
+
+            <div class="section-container">
+
+                <div class="about-box">
+
+                    <div class="about-label">
+                        WHY NOVAERA
+                    </div>
+
+                    <h2>
+                        Seyahat sadece
+                        bir varış noktası
+                        değildir.
+                    </h2>
+
+                    <p>
+                        Doğru planlama, doğru deneyim ve
+                        doğru hizmet bir araya geldiğinde
+                        yolculuk farklı bir anlam kazanır.
+                        NOVAERA'nın amacı seyahat sürecini
+                        daha sade, modern ve kişisel hale
+                        getirmektir.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        data-open-booking
+                    >
+                        Yolculuğumu Planla →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section
+            class="section cta-section"
+            id="contact"
+        >
+
+            <div class="section-container">
+
+                <div class="cta-box">
+
+                    <span class="section-label">
+                        YOUR JOURNEY STARTS HERE
+                    </span>
+
+                    <h2>
+                        Dünyayı birlikte
+                        <span>keşfedelim.</span>
+                    </h2>
+
+                    <p>
+                        Seyahatiniz için ilk adımı bugün atın.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        data-open-booking
+                    >
+                        Rezervasyon Oluştur
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    NOVA<span>ERA</span>
+                </a>
+
+                <p>
+                    Dünyayı keşfetmenin yeni yolu.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Keşfet</h4>
+
+                <a href="#destinations">
+                    Destinasyonlar
+                </a>
+
+                <a href="#services">
+                    Hizmetler
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>NOVAERA</h4>
+
+                <a href="#about">
+                    Hakkımızda
+                </a>
+
+                <a href="#contact">
+                    İletişim
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Seyahat</h4>
+
+                <button data-open-booking>
+                    Rezervasyon
+                </button>
+
+                <a href="admin.html">
+                    Yönetim
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
 
             <span>
-              WHAT WE OFFER
+                © 2026 NOVAERA. Tüm hakları saklıdır.
+            </span>
+
+            <span>
+                PREMIUM TRAVEL PLATFORM
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BOOKING MODAL -->
+    <div
+        class="modal"
+        id="bookingModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                id="closeModal"
+                aria-label="Kapat"
+            >
+                ×
+            </button>
+
+            <span class="section-label">
+                NOVAERA BOOKING
             </span>
 
             <h2>
-              Seyahatın her aşaması.
+                Seyahat talebinizi oluşturun.
             </h2>
 
-          </div>
-
-          <a href="services.html">
-            Tüm hizmetleri gör →
-          </a>
-
-        </div>
-
-
-        <div class="service-grid">
-
-
-          <article class="service-card service-main">
-
-            <div class="service-number">
-              01
-            </div>
-
-            <div class="service-icon">
-              ◈
-            </div>
-
-            <h3>
-              Konaklama
-            </h3>
-
-            <p>
-              Seyahatinize uygun konaklama
-              seçenekleri için talebinizi oluşturun.
+            <p class="modal-description">
+                Bilgilerinizi bırakın. Seyahat talebinizi
+                NOVAERA üzerinden oluşturabilirsiniz.
             </p>
 
-            <a href="reservation.html?service=Otel">
-              Konaklama planla →
-            </a>
 
-          </article>
+            <form id="bookingForm">
 
+                <div class="form-grid">
 
-          <article class="service-card">
+                    <div class="form-group">
 
-            <div class="service-number">
-              02
-            </div>
+                        <label for="bookingName">
+                            Ad Soyad
+                        </label>
 
-            <div class="service-icon">
-              ◌
-            </div>
+                        <input
+                            id="bookingName"
+                            name="name"
+                            type="text"
+                            required
+                            placeholder="Adınız ve soyadınız"
+                        >
 
-            <h3>
-              Turlar
-            </h3>
-
-            <p>
-              Yeni şehirleri, kültürleri ve
-              deneyimleri keşfedin.
-            </p>
-
-            <a href="reservation.html?service=Tur">
-              Tur oluştur →
-            </a>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-number">
-              03
-            </div>
-
-            <div class="service-icon">
-              ◇
-            </div>
-
-            <h3>
-              Transfer
-            </h3>
-
-            <p>
-              Havalimanı ve şehir içi
-              transfer ihtiyaçlarınızı planlayın.
-            </p>
-
-            <a href="reservation.html?service=Transfer">
-              Transfer planla →
-            </a>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-number">
-              04
-            </div>
-
-            <div class="service-icon">
-              ✦
-            </div>
-
-            <h3>
-              VIP Seyahat
-            </h3>
-
-            <p>
-              Size özel oluşturulan
-              premium seyahat deneyimleri.
-            </p>
-
-            <a href="reservation.html?service=VIP">
-              VIP talebi oluştur →
-            </a>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         DESTINATION PREVIEW
-    ====================================================== -->
-
-    <section class="destination-preview">
-
-      <div class="container">
-
-        <div class="destination-heading">
-
-          <span>
-            DISCOVER THE WORLD
-          </span>
-
-          <h2>
-            Bir sonraki hikâyeniz<br>
-            nerede başlayacak?
-          </h2>
-
-          <a href="destinations.html" class="button-secondary">
-            Tüm destinasyonları keşfet →
-          </a>
-
-        </div>
-
-
-        <div class="destination-preview-grid">
-
-
-          <a
-            href="destinations.html#istanbul"
-            class="destination-tile tile-istanbul"
-          >
-
-            <div class="tile-overlay"></div>
-
-            <div class="tile-content">
-
-              <span>
-                TÜRKİYE
-              </span>
-
-              <h3>
-                İstanbul
-              </h3>
-
-              <p>
-                İki kıta. Tek şehir.
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a
-            href="destinations.html#dubai"
-            class="destination-tile tile-dubai"
-          >
-
-            <div class="tile-overlay"></div>
-
-            <div class="tile-content">
-
-              <span>
-                BAE
-              </span>
-
-              <h3>
-                Dubai
-              </h3>
-
-              <p>
-                Geleceğin şehri.
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a
-            href="destinations.html#paris"
-            class="destination-tile tile-paris"
-          >
-
-            <div class="tile-overlay"></div>
-
-            <div class="tile-content">
-
-              <span>
-                FRANSA
-              </span>
-
-              <h3>
-                Paris
-              </h3>
-
-              <p>
-                Işıklar şehri.
-              </p>
-
-            </div>
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL CTA
-    ====================================================== -->
-
-    <section class="final-cta">
-
-      <div class="container">
-
-        <div class="final-cta-inner">
-
-          <div>
-
-            <span>
-              YOUR JOURNEY STARTS HERE
-            </span>
-
-            <h2>
-              Dünyayı birlikte<br>
-              keşfedelim.
-            </h2>
-
-          </div>
-
-
-          <a
-            href="reservation.html"
-            class="button-primary"
-          >
-
-            Rezervasyon Oluştur
-
-            <span>→</span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer>
-
-    <div class="container footer-container">
-
-      <div class="footer-brand">
-
-        <a href="index.html" class="logo">
-          NOVA<span>ERA</span>
-        </a>
-
-        <p>
-          Dünyayı keşfetmenin yeni yolu.
-        </p>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <div>
-
-          <strong>
-            Keşfet
-          </strong>
-
-          <a href="destinations.html">
-            Destinasyonlar
-          </a>
-
-          <a href="services.html">
-            Hizmetler
-          </a>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            NOVAERA
-          </strong>
-
-          <a href="about.html">
-            Hakkımızda
-          </a>
-
-          <a href="contact.html">
-            İletişim
-          </a>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            Seyahat
-          </strong>
-
-          <a href="reservation.html">
-            Rezervasyon
-          </a>
-
-          <a href="admin/index.html">
-            Yönetim
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="container footer-bottom">
-
-      <span>
-        © 2026 NOVAERA. Tüm hakları saklıdır.
-      </span>
-
-      <span>
-        PREMIUM TRAVEL PLATFORM
-      </span>
-
-    </div>
-
-  </footer>
-
-
-  <script src="assets/js/global.js"></script>
-  <script src="assets/js/home.js"></script>
-
-</body>
-      </html>
+       
